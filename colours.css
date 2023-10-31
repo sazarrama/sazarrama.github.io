@@ -1,7 +1,16 @@
 :root {
-    --primary-color: #007BFF; /* Your primary color */
-    --secondary-color: #6C757D; /* Your secondary color */
-    --text-color: #333; /* Text color */
-    --background-color: #fff; /* Background color */
+    --primary-color: #FFC6AC; /* Your primary colour */
+    --secondary-color: #BBDBB4; /* Your secondary colour */
+    --text-color: #FFFFFF; /* Text colour */
+    --background-color: #E56399; /* Background colour */
+    --hover-text-color: #212227; /* Hover Text colour */ 
   }
   
+  .hover-me {
+    color: var(--default-text-color); /* Use the default color variable */
+    transition: color 0.3s; /* Add a smooth transition for a gradual color change */
+}
+
+.hover-me:hover {
+    color: var(--hover-text-color); /* Use the hover color variable on hover */
+}
