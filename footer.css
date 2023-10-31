@@ -8,30 +8,3 @@
     border: none; /* Remove the border */
 }
 
-/* Style for the footer links */
-.footer a {
-    text-decoration: none; /* Remove underlines from the links */
-    margin: 0 10px; /* Add some horizontal spacing between the links */
-}
-
-/* Footer Grid Styling */
-
-.container.footer {
-    text-align: center;
-}
-
-.row-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Vertically center the items */
-}
-
-.col-footer {
-    padding: 10px;
-}
-
-/* Adjust the styles for the links in the footer */
-.col-footer a {
-    text-decoration: none; /* Remove underlines from the links */
-    margin: 0 10px; /* Add some horizontal spacing between the links */
-}
