@@ -1,15 +1,15 @@
-/* Grid Styling */
+/* Footer Styling */
 
-.container.text-center {
+.footer {
     text-align: center;
-  }
-  
-  .row {
     display: flex;
     justify-content: center;
-  }
-  
-  .col {
     padding: 10px;
-  }
-  
+    border: none; /* Remove the border */
+}
+
+/* Style for the footer links */
+.footer a {
+    text-decoration: none; /* Remove underlines from the links */
+    margin: 0 10px; /* Add some horizontal spacing between the links */
+}
