@@ -1,10 +1,22 @@
 /* Footer Styling */
 
-.footer {
+/* Grid Styling */
+.container {
     text-align: center;
+}
+
+.row {
     display: flex;
     justify-content: center;
+}
+
+.col {
+    border: 1px solid #000;
     padding: 10px;
-    border: none; /* Remove the border */
+}
+
+/* Reset text-center styling for specific elements */
+.col.text-center {
+    text-align: center;
 }
 
