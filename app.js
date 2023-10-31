@@ -1,7 +1,7 @@
 /* Loads footer from footer.html */
 
 function loadFooter() {
-    fetch("footer.html") // Path to your footer file
+    fetch("/footer.html") // Path to your footer file
         .then(response => response.text())
         .then(data => {
             // Insert the footer HTML into the div with id "footer"
