@@ -15,6 +15,10 @@
 }
 
 /* Footer Grid Styling */
+
+.container.footer {
+    text-align: center;
+  }
   
   .row-footer {
     display: flex;
