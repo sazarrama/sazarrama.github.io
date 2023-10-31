@@ -4,8 +4,9 @@
     --primary-color: #FFC6AC; /* Your primary colour */
     --secondary-color: #BBDBB4; /* Your secondary colour */
     --text-color: #FFFFFF; /* Text colour */
-    --background-color: #E56399; /* Background colour */
     --hover-text-color: #212227; /* Hover Text colour */ 
+    --background-color: #E56399; /* Background colour */
+    
 }
   
 .hover-me {
@@ -19,12 +20,4 @@
 
 .body {
     background-color: var(--background-color); /* Sets the background colour */
-}
-
-header {
-    background-color: var(--background-color); /* Use the background color variable for the header */
-}
-
-footer {
-    background-color: var(--background-color); /* Use the background color variable for the footer */
 }
