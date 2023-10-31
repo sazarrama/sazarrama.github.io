@@ -1,4 +1,18 @@
-/* landingpage.css */
+/* Landing Page Styling */
+
+/* Header Styling */
+
+.header {
+  text-align: center; /* Horizontal center alignment */
+  display: flex;
+  justify-content: center; /* Center horizontally in flex container */
+  align-items: center; /* Center vertically in flex container */
+  height: 100vh; /* Full viewport height */
+  background-color: #333; /* Background color */
+  color: #fff; /* Text color */
+}
+
+/* Grid Styling */
 
 .container.text-center {
     text-align: center;
