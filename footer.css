@@ -15,12 +15,8 @@
 }
 
 /* Footer Grid Styling */
-
-.container.text-center {
-    text-align: center;
-  }
   
-  .row {
+  .row-footer {
     display: flex;
     justify-content: center;
   }
