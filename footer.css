@@ -1,0 +1,15 @@
+/* Grid Styling */
+
+.container.text-center {
+    text-align: center;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .col {
+    padding: 10px;
+  }
+  
