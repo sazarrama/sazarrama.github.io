@@ -16,3 +16,15 @@
 .hover-me:hover {
     color: var(--hover-text-color); /* Use the hover color variable on hover */
 }
+
+.body {
+    background-color: var(--background-color); /* Sets the background colour */
+}
+
+header {
+    background-color: var(--background-color); /* Use the background color variable for the header */
+}
+
+footer {
+    background-color: var(--background-color); /* Use the background color variable for the footer */
+}
