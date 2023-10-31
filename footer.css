@@ -13,3 +13,18 @@
     text-decoration: none; /* Remove underlines from the links */
     margin: 0 10px; /* Add some horizontal spacing between the links */
 }
+
+/* Footer Grid Styling */
+
+.container.text-center {
+    text-align: center;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .col-footer {
+    padding: 10px;
+  }
