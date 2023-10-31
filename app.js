@@ -1,13 +1,28 @@
-/* Loads footer from footer.html */
+/* Loads footer from footer.html once page is loaded fully */
 
-fetch("https://sazarrama.github.io/footer.html") // Use your GitHub Pages URL
-    .then(response => response.text())
-    .then(data => {
-        // Insert the footer HTML into the div with id "footer"
-        document.getElementById("footer").innerHTML = data;
-    })
-    .catch(error => console.error("Error fetching footer: " + error)
-);
+document.addEventListener("DOMContentLoaded", function () {
+    loadFooter();
+
+    function loadFooter() {
+        fetch("https://sazarrama.github.io/footer.html") // Path to your footer file
+            .then(response => response.text())
+            .then(data => {
+                // Insert the footer HTML into the div with id "footer"
+                const footerElement = document.getElementById("footer");
+                if (footerElement) {
+                    footerElement.innerHTML = data;
+                } else {
+                    console.warn("Footer element not found.");
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching footer: " + error);
+            });
+    }
+});
+
+
+
 
 
 
