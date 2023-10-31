@@ -1,0 +1,16 @@
+/* resume.css */
+
+.container.text-center {
+    text-align: center;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .col {
+    border: 1px solid #000;
+    padding: 10px;
+  }
+  
