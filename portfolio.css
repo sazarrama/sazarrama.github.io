@@ -1,0 +1,30 @@
+/* Portfolio Page Styling */
+
+/* Header Styling */
+
+.header {
+    text-align: center; /* Horizontal center alignment */
+    display: flex;
+    justify-content: center; /* Center horizontally in flex container */
+    align-items: center; /* Center vertically in flex container */
+    height: 25vh; /* Full viewport height */
+    background-color: #333; /* Background color */
+    color: #fff; /* Text color */
+  }
+  
+  /* Grid Styling */
+  
+  .container.text-center {
+      text-align: center;
+    }
+    
+    .row {
+      display: flex;
+      justify-content: center;
+    }
+    
+    .col {
+      border: 1px solid #000;
+      padding: 10px;
+    }
+    
