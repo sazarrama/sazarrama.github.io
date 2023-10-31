@@ -18,13 +18,20 @@
 
 .container.footer {
     text-align: center;
-  }
-  
-  .row-footer {
+}
+
+.row-footer {
     display: flex;
     justify-content: center;
-  }
-  
-  .col-footer {
+    align-items: center; /* Vertically center the items */
+}
+
+.col-footer {
     padding: 10px;
-  }
+}
+
+/* Adjust the styles for the links in the footer */
+.col-footer a {
+    text-decoration: none; /* Remove underlines from the links */
+    margin: 0 10px; /* Add some horizontal spacing between the links */
+}
