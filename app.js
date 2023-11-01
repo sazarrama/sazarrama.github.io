@@ -1,7 +1,7 @@
 // Load footer from footer.html and common content from common.html when the page loads
 window.onload = function () {
-    loadCommon();
     loadFooter(); 
+    loadCommon();
 }
 
 function loadCommon() {
