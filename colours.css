@@ -1,10 +1,10 @@
 /* Colour Styling */
 
 :root {
-    --primary-color: #FFC6AC; /* Your primary colour */
+    --primary-color: #212227; /* Your primary colour */
     --secondary-color: #BBDBB4; /* Your secondary colour */
     --text-color: #FFFFFF; /* Text colour */
-    --hover-text-color: #212227; /* Hover Text colour */ 
+    --hover-text-color: #FFC6AC; /* Hover Text colour */ 
     --background-color: #E56399; /* Background colour */
     
 }

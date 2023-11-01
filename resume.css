@@ -3,14 +3,13 @@
 /* Header Styling */
 
 .header {
-    text-align: center; /* Horizontal center alignment */
-    display: flex;
-    justify-content: center; /* Center horizontally in flex container */
-    align-items: center; /* Center vertically in flex container */
-    height: 25vh; /* Full viewport height */
-    background-color: #333; /* Background color */
-    color: #fff; /* Text color */
-  }  
+  text-align: center; /* Horizontal center alignment */
+  display: flex;
+  justify-content: center; /* Center horizontally in flex container */
+  align-items: center; /* Center vertically in flex container */
+  height: 25vh; /* Full viewport height */
+  font-family: 'Bungee Shade', sans-serif;
+}
 
 /* Grid Styling */
 
