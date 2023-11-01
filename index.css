@@ -1,5 +1,13 @@
 /* Landing Page Styling */
 
+/* Logo Styling */
+
+.logo {
+  max-width: 200px; /* Set the maximum width for the logo */
+  display: block;
+  margin: 0 auto; /* Center-align the logo horizontally */
+}
+
 /* Header Styling */
 
 .header {
