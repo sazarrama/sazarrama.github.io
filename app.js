@@ -20,15 +20,21 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     }
 
-    function loadCommon () {
-        fetch("https://sazarrama.github.io/common.html")
-            .then(response => response.text())
-            .then(data => {
-                document.body.innerHTML += data;
-            })
-            .catch(error => console.error(error));
-    }
-});
+
+function loadCommon() {
+    fetch("https://sazarrama.github.io/common.html")
+        .then(response => response.text())
+        .then(data => {
+            // Create a temporary container to hold the common HTML content
+            const commonContainer = document.createElement('div');
+            commonContainer.innerHTML = data;
+
+            // Insert the common content at the beginning of the body
+            document.body.insertBefore(commonContainer, document.body.firstChild);
+        })
+        .catch(error => console.error(error));
+}
+
 
 
 
