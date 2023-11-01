@@ -35,3 +35,13 @@
 .container {
     color: var(--text-color); /* Sets the text colour */
 }
+
+/* Set the color of your Font Awesome icons */
+i.fab.fa-instagram {
+    color: var(--text-color); /* Change this to your desired color */
+  }
+  
+  i.fab.fa-linkedin-in {
+    color: var(--text-color);
+  }
+  
