@@ -19,7 +19,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.error("Error fetching footer: " + error);
             });
     }
+
+    function loadCommon () {
+        fetch('common.html')
+            .then(response => response.text())
+            .then(data => {
+                document.body.innerHTML += data;
+            })
+            .catch(error => console.error(error));
+    }
 });
+
+
 
 
 
