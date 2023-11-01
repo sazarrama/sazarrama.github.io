@@ -7,16 +7,34 @@
 }
 
 .row {
-    display: flex;
-    justify-content: center;
+    display: flex; /* Make the row a flex container */
+    justify-content: center; /* Center the columns horizontally */
 }
-
-.col {
-    padding: 10px;
+  
+  .col {
+    text-align: center;
+    flex: 1; /* Distribute columns evenly in a row */
 }
 
 /* Reset text-center styling for specific elements */
 .col.text-center {
     text-align: center;
 }
+
+/* Icon Styling */
+
+.icon-link {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .icon-link i {
+    font-size: 24px; /* Adjust the size as needed */
+    margin-bottom: 5px; /* Adjust the spacing between the icon and link */
+  }
+  
+
+  
 
