@@ -14,31 +14,34 @@
 /* Grid Styling */
 
 .container {
-    text-align: center;
-  }
-  
-  .row {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .col {
-    padding: 10px;
-    font-family: 'Bungee Hairline', sans-serif;
-  }
+  text-align: center;
+}
 
-  /* Icon Styling */
+.row {
+  display: flex;
+  justify-content: center;
+}
 
-  .icon-link {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .icon-link i {
-    font-size: 24px; /* Adjust the size as needed */
-    margin-bottom: 5px; /* Adjust the spacing between the icon and link */
-  }
+.col {
+  padding: 10px;
+  font-family: 'Bungee Hairline', sans-serif;
+  text-align: center;
+  display: inline-block;
+  margin: 0 10px; /* Adjust the margin as needed for spacing */
+}
+
+/* Icon Styling */
+
+.icon-link {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon-link i {
+  font-size: 24px; /* Adjust the size as needed */
+  margin-bottom: 5px; /* Adjust the spacing between the icon and link */
+}
   
   
