@@ -9,6 +9,20 @@
     
 }
   
+.body {
+    background-color: var(--background-color); /* Sets the background colour */
+}
+
+.footer {
+    background-color: var(--background-color); 
+    color: var(--text-color); /* Sets the text colour */
+}
+
+.header {
+    background-color: var(--background-color); 
+    color: var(--text-color); /* Sets the text colour */
+}
+
 .hover-me {
     color: var(--default-text-color); /* Use the default color variable */
     transition: color 0.3s; /* Add a smooth transition for a gradual color change */
@@ -18,6 +32,6 @@
     color: var(--hover-text-color); /* Use the hover color variable on hover */
 }
 
-.body {
-    background-color: var(--background-color); /* Sets the background colour */
+.container {
+    color: var(--text-color); /* Sets the text colour */
 }
