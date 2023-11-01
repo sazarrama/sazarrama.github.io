@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function loadCommon () {
-        fetch('common.html')
+        fetch("https://sazarrama.github.io/common.html")
             .then(response => response.text())
             .then(data => {
                 document.body.innerHTML += data;
