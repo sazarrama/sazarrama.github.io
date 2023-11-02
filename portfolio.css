@@ -28,4 +28,9 @@
     font-family: 'Bungee Hairline', sans-serif;
   }
     
+  /* Carousel Styling */
+
+  .carousel-item img {
+    display: none;
+  }
   
