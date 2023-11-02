@@ -40,6 +40,10 @@ function loadFooterAndCommon() {
     }).catch(error => console.error(error));
 }
 
+window.addEventListener('load', function () {
+    hideLoading(); // Call a function to hide the loading container
+});
+
 function hideLoading() {
     document.getElementById('loading-container').style.display = 'none';
 }
