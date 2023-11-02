@@ -1,6 +1,18 @@
 window.onload = function () {
-    showLoading(); // Show loading page initially
+    loadLoading(); // Load and show the loading page initially
     loadFooterAndCommon();
+}
+
+function loadLoading() {
+    fetch("loading.html") // Load your loading page content
+        .then(response => response.text())
+        .then(loadingData => {
+            const loadingContainer = document.getElementById('loading');
+            if (loadingContainer) {
+                loadingContainer.innerHTML = loadingData;
+            }
+        })
+        .catch(error => console.error(error));
 }
 
 function loadFooterAndCommon() {
@@ -23,13 +35,9 @@ function loadFooterAndCommon() {
             console.warn("Footer element not found.");
         }
 
-        hideLoading(); // Hide loading page once content is loaded
+        hideLoading(); // Hide the loading page once content is loaded
         showContent(); // Show the main content
     }).catch(error => console.error(error));
-}
-
-function showLoading() {
-    document.getElementById('loading').style.display = 'block';
 }
 
 function hideLoading() {
