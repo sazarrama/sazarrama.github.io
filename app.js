@@ -4,7 +4,7 @@ window.onload = function () {
 }
 
 function loadLoading() {
-    fetch("loading.html") // Load your loading page content
+    fetch("https://sazarrama.github.io/loading.html") // Load your loading page content
         .then(response => response.text())
         .then(loadingData => {
             const loadingContainer = document.getElementById('loading');
