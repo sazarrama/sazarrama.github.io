@@ -41,7 +41,7 @@ function loadFooterAndCommon() {
 }
 
 function hideLoading() {
-    document.getElementById('loading').style.display = 'none';
+    document.getElementById('loading-container').style.display = 'none';
 }
 
 function showContent() {
