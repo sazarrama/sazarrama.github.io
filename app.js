@@ -44,4 +44,7 @@ function loadFolio() {
     $('.carousel-item img').on('load', function () {
         $(this).css('display', 'block');
     });
+
+    document.getElementById('loading-spinner').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
 }
