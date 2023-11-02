@@ -50,3 +50,8 @@ i.fa-regular.fa-envelope {
     color: var(--text-color);
 }
   
+/* Spinner Colour */
+
+.spinner {
+    color: var(--text-color);
+}
