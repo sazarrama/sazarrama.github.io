@@ -11,6 +11,41 @@
   font-family: 'Bungee Shade', sans-serif;
 }
 
+/* Hero Image */
+
+/* Style for the hero container */
+.hero-container {
+  background-image: url('your-hero-image.jpg'); /* Replace with your image URL */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff; /* Text color for the hero content */
+}
+
+/* Style for the hero content */
+.hero-content {
+  text-align: center;
+}
+
+/* Style for the hero title */
+.hero-content h1 {
+  font-size: 3rem; /* Adjust the font size as needed */
+}
+
+/* Style for the hero subtitle or description */
+.hero-content p {
+  font-size: 1.5rem; /* Adjust the font size as needed */
+}
+
+/* Style for the Learn More button */
+.hero-content .btn {
+  margin-top: 20px; /* Adjust the margin as needed */
+}
+
 /* Grid Styling */
 
 .container {
