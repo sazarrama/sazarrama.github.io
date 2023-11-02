@@ -23,18 +23,19 @@
 
 /* Icon Styling */
 
+/* Icon Styling */
+
 .icon-link {
     text-align: center;
     display: flex;
-    flex-direction: column;
     align-items: center;
 }
-  
+
 .icon-link i {
     font-size: 24px; /* Adjust the size as needed */
-    margin-bottom: 10px; /* Adjust the spacing between the icon and link */
+    margin-right: 10px; /* Adjust the spacing between the icons */
 }
-  
+
 
   
 

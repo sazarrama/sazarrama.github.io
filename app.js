@@ -1,7 +1,11 @@
 // Load footer from footer.html and common content from common.html when the page loads
 window.onload = function () {
-    loadFooter(); 
+    loadFooter();
     loadCommon();
+
+    if (window.location.href.includes('portfolio.html')) {
+        loadFolio();
+    }
 }
 
 function loadCommon() {
@@ -19,7 +23,7 @@ function loadCommon() {
 }
 
 function loadFooter() {
-    fetch("https://sazarrama.github.io/footer.html") // Path to your footer file
+    fetch("https://sazarrama.github.io/footer.html")
         .then(response => response.text())
         .then(data => {
             // Insert the footer HTML into the div with id "footer"
@@ -35,14 +39,9 @@ function loadFooter() {
         });
 }
 
-
-
-
-
-
-
-
-
-
-
-
+function loadFolio() {
+    // Your existing code for portfolio.html
+    $('.carousel-item img').on('load', function () {
+        $(this).css('display', 'block');
+    });
+}
