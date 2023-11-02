@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="portfolio.css">
     <script src="https://kit.fontawesome.com/cb20d804a6.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 
 <body class="body">
@@ -20,14 +20,14 @@
     <div id="content" style="display: none;">
     
         <div class="header">
-        <h1>Portfolio</h1>
+            <h1>Portfolio</h1>
         </div>
 
         <div id="carouselExample" class="carousel slide" data-ride="carousel">
             
             <div class="carousel-inner">
 
-                <div class="carousel-item active">
+                <div class="item active">
                     <img src="https://github.com/sazarrama/sazarrama.github.io/blob/main/portfolio/MNV001.jpg?raw=true" class="d-block w-100" alt="Image 1">
                 </div>
 
@@ -85,15 +85,12 @@
 
             </div>
 
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+            <a class="left carousel-control" href="#carouselExample" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#carouselExample" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
         </div>
 
         <div id="footer"></div>
