@@ -43,7 +43,7 @@ function loadFooterAndCommon() {
 
 function loadImages() {
     const imagePath = "https://api.github.com/repos/sazarrama/sazarrama.github.io/contents/portfolio";
-    const thumbnailsContainer = document.getElementById("thumbnailsContainer");
+    const thumbnailsContainer = document.getElementById("grid-container");
 
     if (!thumbnailsContainer) {
         console.error("thumbnailsContainer not found");
