@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Handle thumbnail clicks to open the carousel
     const thumb = document.querySelectorAll('.thumbnail');
-    thumbn.forEach((thumbnail, index) => {
+    thumb.forEach((thumbnail, index) => {
         thumb.addEventListener('click', function () {
             openCarousel(index + 1);  // index + 1 because your image numbers start from 1
         });
