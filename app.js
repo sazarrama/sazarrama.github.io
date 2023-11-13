@@ -102,13 +102,19 @@ window.addEventListener('click', function (event) {
     }
 });
 
-// ... (existing code)
-
 function openCarousel(imageNumber) {
+    const modal = document.getElementById('myModal');
     const carouselInner = document.querySelector('#imageCarousel .carousel-inner');
-    carouselInner.innerHTML = ''; // Clear existing carousel images
+    
+    // Clear existing carousel images
+    carouselInner.innerHTML = '';
 
+    // Add the current image to the carousel
     const imagePath = `https://raw.githubusercontent.com/sazarrama/sazarrama.github.io/main/portfolio/${imageNumber}.jpg`;
+    const carouselItem = document.createElement('div');
+    carouselItem.classList.add('carousel-item', 'active');
+    carouselItem.innerHTML = `<img src="${imagePath}" class="d-block w-100" alt="Image ${imageNumber}">`;
+    carouselInner.appendChild(carouselItem);
 
     // Add the previous button
     const prevButton = document.createElement('a');
@@ -119,12 +125,6 @@ function openCarousel(imageNumber) {
     prevButton.innerHTML = '<span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span>';
     carouselInner.appendChild(prevButton);
 
-    const carouselItem = document.createElement('div');
-    carouselItem.classList.add('carousel-item');
-    carouselItem.innerHTML = `<img src="${imagePath}" class="d-block w-100" alt="Image ${imageNumber}">`;
-
-    carouselInner.appendChild(carouselItem);
-
     // Add the next button
     const nextButton = document.createElement('a');
     nextButton.classList.add('carousel-control-next');
@@ -134,11 +134,8 @@ function openCarousel(imageNumber) {
     nextButton.innerHTML = '<span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span>';
     carouselInner.appendChild(nextButton);
 
-    // Activate the first item in the carousel
-    carouselItem.classList.add('active');
-
     // Show the modal with the carousel
-    document.getElementById('imageCarousel').style.display = 'block';
+    modal.style.display = 'block';
 }
 
 function closeCarousel() {
