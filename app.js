@@ -1,3 +1,20 @@
+const imageUrls = [
+    "https://github.com/sazarrama/sazarrama.github.io/blob/main/portfolio/MNV001.jpg?raw=true",
+    "https://github.com/sazarrama/sazarrama.github.io/blob/main/portfolio/EB001.jpg?raw=true",
+    "https://github.com/sazarrama/sazarrama.github.io/blob/main/portfolio/EB002.jpg?raw=true",
+    "https://github.com/sazarrama/sazarrama.github.io/blob/main/portfolio/EB003.jpg?raw=true",
+    "https://github.com/sazarrama/sazarrama.github.io/blob/main/portfolio/LW001.jpg?raw=true",
+    "https://github.com/sazarrama/sazarrama.github.io/blob/main/portfolio/LW002.jpg?raw=true",
+    "https://github.com/sazarrama/sazarrama.github.io/blob/main/portfolio/LOG001.jpg?raw=true",
+    "https://github.com/sazarrama/sazarrama.github.io/blob/main/portfolio/MG001.jpg?raw=true",
+    "https://github.com/sazarrama/sazarrama.github.io/blob/main/portfolio/MG002.jpg?raw=true",
+    "https://github.com/sazarrama/sazarrama.github.io/blob/main/portfolio/MG003.jpg?raw=true",
+    "https://github.com/sazarrama/sazarrama.github.io/blob/main/portfolio/MFA001.jpg?raw=true",
+    "https://github.com/sazarrama/sazarrama.github.io/blob/main/portfolio/TWF001.jpg?raw=true",
+    "https://github.com/sazarrama/sazarrama.github.io/blob/main/portfolio/TWF002.jpg?raw=true",
+    "https://github.com/sazarrama/sazarrama.github.io/blob/main/portfolio/TWF003.jpg?raw=true",
+];
+
 window.onload = function () {
     loadLoading(); // Load and show the loading page initially
     loadFooterAndCommon();
@@ -97,24 +114,6 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('carouselContainer').style.display = 'none';
     };
 });
-
-
-const imageUrls = [
-    "https://github.com/sazarrama/sazarrama.github.io/blob/main/portfolio/MNV001.jpg?raw=true",
-    "https://github.com/sazarrama/sazarrama.github.io/blob/main/portfolio/EB001.jpg?raw=true",
-    "https://github.com/sazarrama/sazarrama.github.io/blob/main/portfolio/EB002.jpg?raw=true",
-    "https://github.com/sazarrama/sazarrama.github.io/blob/main/portfolio/EB003.jpg?raw=true",
-    "https://github.com/sazarrama/sazarrama.github.io/blob/main/portfolio/LW001.jpg?raw=true",
-    "https://github.com/sazarrama/sazarrama.github.io/blob/main/portfolio/LW002.jpg?raw=true",
-    "https://github.com/sazarrama/sazarrama.github.io/blob/main/portfolio/LOG001.jpg?raw=true",
-    "https://github.com/sazarrama/sazarrama.github.io/blob/main/portfolio/MG001.jpg?raw=true",
-    "https://github.com/sazarrama/sazarrama.github.io/blob/main/portfolio/MG002.jpg?raw=true",
-    "https://github.com/sazarrama/sazarrama.github.io/blob/main/portfolio/MG003.jpg?raw=true",
-    "https://github.com/sazarrama/sazarrama.github.io/blob/main/portfolio/MFA001.jpg?raw=true",
-    "https://github.com/sazarrama/sazarrama.github.io/blob/main/portfolio/TWF001.jpg?raw=true",
-    "https://github.com/sazarrama/sazarrama.github.io/blob/main/portfolio/TWF002.jpg?raw=true",
-    "https://github.com/sazarrama/sazarrama.github.io/blob/main/portfolio/TWF003.jpg?raw=true",
-];
 
 // Function to create a thumbnail element
 function createThumbnail(index) {
