@@ -102,6 +102,9 @@ window.addEventListener('click', function (event) {
     }
 });
 
+// Declare imagePaths as a global variable
+let imagePaths = [];
+
 function openCarousel(imageNumber) {
     const modal = document.getElementById('myModal');
     const carouselInner = document.querySelector('#imageCarousel .carousel-inner');
