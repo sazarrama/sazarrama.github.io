@@ -105,16 +105,26 @@ window.addEventListener('click', function (event) {
 function openCarousel(imageNumber) {
     const modal = document.getElementById('myModal');
     const carouselInner = document.querySelector('#imageCarousel .carousel-inner');
-    
+
     // Clear existing carousel images
     carouselInner.innerHTML = '';
 
-    // Add the current image to the carousel
-    const imagePath = `https://raw.githubusercontent.com/sazarrama/sazarrama.github.io/main/portfolio/${imageNumber}.jpg`;
-    const carouselItem = document.createElement('div');
-    carouselItem.classList.add('carousel-item', 'active');
-    carouselItem.innerHTML = `<img src="${imagePath}" class="d-block w-100" alt="Image ${imageNumber}">`;
-    carouselInner.appendChild(carouselItem);
+    // Fetch all image URLs for the carousel
+    const imagePaths = [];
+    for (let i = 1; i <= 14; i++) {
+        imagePaths.push(`https://raw.githubusercontent.com/sazarrama/sazarrama.github.io/main/portfolio/${i}.jpg`);
+    }
+
+    // Add each image to the carousel
+    imagePaths.forEach((path, index) => {
+        const carouselItem = document.createElement('div');
+        carouselItem.classList.add('carousel-item');
+        if (index === 0) {
+            carouselItem.classList.add('active');
+        }
+        carouselItem.innerHTML = `<img src="${path}" class="d-block w-100" alt="Image ${index + 1}">`;
+        carouselInner.appendChild(carouselItem);
+    });
 
     // Add the previous button
     const prevButton = document.createElement('a');
