@@ -104,15 +104,14 @@ function generateCarouselItems() {
 // Call the function to generate carousel items
 generateCarouselItems();
 
-
-// Call the function to generate carousel items
-generateCarouselItems();
-
 // Initialize Bootstrap Carousel
 document.addEventListener('DOMContentLoaded', function () {
     const carousel = new bootstrap.Carousel(document.getElementById('carouselExample'), {
         interval: false, // Disable automatic cycling
     });
+
+    // Call the function to generate carousel items
+    generateCarouselItems();
 
     // Carousel script
     window.openCarousel = function (imageNumber) {
