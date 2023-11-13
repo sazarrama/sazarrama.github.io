@@ -18,16 +18,15 @@ function loadLoading() {
 function loadFooterAndCommon() {
     Promise.all([
         fetch("https://sazarrama.github.io/common.html").then(response => response.text()),
-        fetch("https://sazarrama.github.io/footer.html").then(response => response.text())
-    ]).then(([commonData, footerData]) => {
-        // Create a temporary container to hold the common HTML content
+        fetch("https://sazarrama.github.io/footer.html").then(response => response.text()),
+        fetch("https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js").then(response => response.text()), // Add this line to fetch Popper.js
+        fetch("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js").then(response => response.text()) // Add this line to fetch Bootstrap JavaScript
+    ]).then(([commonData, footerData, popperData, bootstrapData]) => {
         const commonContainer = document.createElement('div');
         commonContainer.innerHTML = commonData;
 
-        // Insert the common content at the beginning of the body
         document.body.insertBefore(commonContainer, document.body.firstChild);
 
-        // Insert the footer HTML into the div with id "footer"
         const footerElement = document.getElementById("footer");
         if (footerElement) {
             footerElement.innerHTML = footerData;
@@ -35,15 +34,14 @@ function loadFooterAndCommon() {
             console.warn("Footer element not found.");
         }
 
-        hideLoading(); // Hide the loading page once content is loaded
-        showContent(); // Show the main content
-        generateThumbnails(); // Generate the image thumbnails dynamically
+        // Execute Popper.js and Bootstrap JavaScript code
+        eval(popperData);
+        eval(bootstrapData);
+
+        hideLoading();
+        showContent();
     }).catch(error => console.error(error));
 }
-
-window.addEventListener('load', function () {
-    hideLoading(); // Call a function to hide the loading container
-});
 
 function hideLoading() {
     document.getElementById('loading-container').style.display = 'none';
