@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,27 +25,25 @@
             <!-- Thumbnails will be dynamically added here -->
         </div>
 
-        <div id="imageCarousel" class="carousel slide">
-            <div class="carousel-inner">
-              <!-- Images will be dynamically added here -->
-            </div>
-            <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#imageCarousel" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-        </div>
-
-        <div id="footer"></div>
-
         <div id="myModal" class="modal">
-            <div class="modal-content"></div>
+            <div id="imageCarousel" class="carousel slide">
+                <div class="carousel-inner">
+                  <!-- Images will be dynamically added here -->
+                </div>
+                <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#imageCarousel" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+            </div>
             <span class="close" onclick="closeCarousel()">&times;</span>
         </div>        
 
+        <div id="footer"></div>
+    
     </div>
     
 </body>
