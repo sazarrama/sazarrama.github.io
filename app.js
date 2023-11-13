@@ -132,25 +132,21 @@ document.addEventListener('DOMContentLoaded', function () {
             const carouselItem = document.createElement('div');
             carouselItem.classList.add('carousel-item');
             carouselItem.innerHTML = `<img src="${imgSrc}" class="d-block w-100" alt="Image ${counter}">`;
-
+    
             // Remove any existing active item
             const activeItem = carouselInner.querySelector('.carousel-item.active');
             if (activeItem) {
                 activeItem.classList.remove('active');
             }
-
+    
             carouselInner.appendChild(carouselItem);
             carouselItem.classList.add('active');
-
+    
             // Increment the counter for the next image
             counter++;
         });
     });
-
-    // Manually initialize the carousel
-    $('#imageCarousel').carousel({
-        interval: false  // Set interval to false to prevent automatic sliding
-    });
+    
 
     // Handle thumbnail clicks to open the carousel
     const thumb = document.querySelectorAll('.thumbnail');
