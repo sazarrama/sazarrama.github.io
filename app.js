@@ -71,22 +71,39 @@ function showContent() {
 // Function to create a carousel item
 function createCarouselItem(index) {
     const carouselInner = document.querySelector('.carousel-inner');
-    const item = document.createElement('div');
-    item.className = 'carousel-item';
-    const img = document.createElement('img');
-    img.src = imageUrls[index];
-    img.className = 'd-block w-100';
-    img.alt = `Image ${index + 1}`;
-    item.appendChild(img);
-    carouselInner.appendChild(item);
+
+    // Check if the carouselInner element exists
+    if (carouselInner) {
+        const item = document.createElement('div');
+        item.className = 'carousel-item';
+        const img = document.createElement('img');
+        img.src = imageUrls[index];
+        img.className = 'd-block w-100';
+        img.alt = `Image ${index + 1}`;
+        item.appendChild(img);
+        carouselInner.appendChild(item); // Append the item to the carousel inner container
+    } else {
+        console.error("Carousel inner container not found.");
+    }
 }
 
 // Function to generate carousel items
 function generateCarouselItems() {
-    for (let i = 0; i < imageUrls.length; i++) {
-        createCarouselItem(i);
+    const carouselInner = document.querySelector('.carousel-inner');
+
+    // Check if the carouselInner element exists
+    if (carouselInner) {
+        for (let i = 0; i < imageUrls.length; i++) {
+            createCarouselItem(i);
+        }
+    } else {
+        console.error("Carousel inner container not found.");
     }
 }
+
+// Call the function to generate carousel items
+generateCarouselItems();
+
 
 // Call the function to generate carousel items
 generateCarouselItems();
