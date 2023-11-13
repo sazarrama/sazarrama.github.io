@@ -111,7 +111,7 @@ function openCarousel(imageNumber) {
 }
 
 function closeCarousel() {
-    const carouselContainer = document.getElementById('carouselContainer');
+    const carouselContainer = document.getElementById('imageCarousel');
     carouselContainer.style.display = 'none';
 }
 
@@ -141,4 +141,42 @@ document.addEventListener('DOMContentLoaded', function() {
             counter++;
         });
     });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // ... (your existing code)
+    
+        // Manually initialize the carousel
+        $('#imageCarousel').carousel({
+            interval: false  // Set interval to false to prevent automatic sliding
+        });
+    
+        // Handle thumbnail clicks to open the carousel
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        thumbnails.forEach((thumbnail, index) => {
+            thumbnail.addEventListener('click', function () {
+                openCarousel(index + 1);  // index + 1 because your image numbers start from 1
+            });
+        });
+    
+        // Handle carousel slide event to update the active thumbnail
+        $('#imageCarousel').on('slide.bs.carousel', function (event) {
+            const activeIndex = event.to;
+            updateActiveThumbnail(activeIndex);
+        });
+    
+        function updateActiveThumbnail(index) {
+            // Remove active class from existing active thumbnail
+            const activeThumbnail = document.querySelector('.thumbnail.active');
+            if (activeThumbnail) {
+                activeThumbnail.classList.remove('active');
+            }
+    
+            // Add active class to the corresponding thumbnail
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            if (thumbnails[index]) {
+                thumbnails[index].classList.add('active');
+            }
+        }
+    });
+    
 });
