@@ -113,7 +113,6 @@ function openCarousel(imageNumber) {
     carouselInner.innerHTML = '';
 
     // Fetch all image URLs for the carousel
-    const imagePaths = [];
     for (let i = 1; i <= 14; i++) {
         imagePaths.push(`https://raw.githubusercontent.com/sazarrama/sazarrama.github.io/main/portfolio/${i}.jpg`);
     }
