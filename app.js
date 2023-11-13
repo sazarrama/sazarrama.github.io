@@ -107,19 +107,17 @@ function openCarousel(imageNumber) {
     carouselInner.innerHTML = ''; // Clear existing carousel images
 
     const imagePath = `https://raw.githubusercontent.com/sazarrama/sazarrama.github.io/main/portfolio/${imageNumber}.jpg`;
-    const modalContent = document.querySelector('.modal-content');
     const carouselItem = document.createElement('div');
     carouselItem.classList.add('carousel-item');
     carouselItem.innerHTML = `<img src="${imagePath}" class="d-block w-100" alt="Image ${imageNumber}">`;
 
     carouselInner.appendChild(carouselItem);
-    
+
     // Activate the first item in the carousel
-    const firstItem = document.querySelector('#imageCarousel .carousel-item');
-    firstItem.classList.add('active');
+    carouselItem.classList.add('active');
 
     // Show the modal with the carousel
-    document.getElementById('myModal').style.display = 'block';
+    document.getElementById('imageCarousel').style.display = 'block';
 }
 
 function closeCarousel() {
