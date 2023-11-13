@@ -84,13 +84,29 @@ function showContent() {
     document.getElementById('content').style.display = 'block';
 }
 
-// Carousel script
+// Carousel
+
 function openCarousel(imageNumber) {
-    const carouselContainer = document.getElementById('carouselContainer');
-    const carouselImage = document.getElementById('carouselImage');
+    const carouselContainer = document.getElementById('imageCarousel');
+    const carouselInner = document.querySelector('.carousel-inner');
     const imagePath = `https://raw.githubusercontent.com/sazarrama/sazarrama.github.io/main/portfolio/${imageNumber}.jpg`;
 
-    carouselImage.src = imagePath;
+    // Create a new carousel item
+    const carouselItem = document.createElement('div');
+    carouselItem.classList.add('carousel-item');
+    carouselItem.innerHTML = `<img src="${imagePath}" class="d-block w-100" alt="Image ${imageNumber}">`;
+
+    // Remove any existing active item
+    const activeItem = carouselInner.querySelector('.carousel-item.active');
+    if (activeItem) {
+        activeItem.classList.remove('active');
+    }
+
+    // Add the new carousel item and make it active
+    carouselInner.appendChild(carouselItem);
+    carouselItem.classList.add('active');
+
+    // Show the carousel container
     carouselContainer.style.display = 'flex';
 }
 
