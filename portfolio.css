@@ -90,3 +90,16 @@ body {
   margin: auto;
 }
 
+/* Add the following styles for the close button in the modal */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: red;
+}

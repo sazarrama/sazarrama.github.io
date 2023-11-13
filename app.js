@@ -64,7 +64,7 @@ function createThumbnailDiv(imageNumber) {
     const thumbnailDiv = document.createElement("div");
     thumbnailDiv.classList.add("thumbnail");
     thumbnailDiv.addEventListener("click", function () {
-        openModal(imageNumber);
+        openCarousel(imageNumber);
     });
 
     const imageSrc = `https://raw.githubusercontent.com/sazarrama/sazarrama.github.io/main/portfolio/${imageNumber}.jpg`;
@@ -103,14 +103,25 @@ window.addEventListener('click', function (event) {
 });
 
 function openCarousel(imageNumber) {
-    const modalContent = document.querySelector('.modal-content');
-    const imagePath = `https://raw.githubusercontent.com/sazarrama/sazarrama.github.io/main/portfolio/${imageNumber}.jpg`;
+    const carouselInner = document.querySelector('#imageCarousel .carousel-inner');
+    carouselInner.innerHTML = ''; // Clear existing carousel images
 
-    modalContent.innerHTML = `<img src="${imagePath}" class="d-block w-100" alt="Image ${imageNumber}">`;
+    const imagePath = `https://raw.githubusercontent.com/sazarrama/sazarrama.github.io/main/portfolio/${imageNumber}.jpg`;
+    const modalContent = document.querySelector('.modal-content');
+    const carouselItem = document.createElement('div');
+    carouselItem.classList.add('carousel-item');
+    carouselItem.innerHTML = `<img src="${imagePath}" class="d-block w-100" alt="Image ${imageNumber}">`;
+
+    carouselInner.appendChild(carouselItem);
+    
+    // Activate the first item in the carousel
+    const firstItem = document.querySelector('#imageCarousel .carousel-item');
+    firstItem.classList.add('active');
+
+    // Show the modal with the carousel
     document.getElementById('myModal').style.display = 'block';
 }
 
 function closeCarousel() {
     document.getElementById('myModal').style.display = 'none';
 }
-
