@@ -9,9 +9,10 @@
 .row {
     display: flex; /* Make the row a flex container */
     justify-content: center; /* Center the columns horizontally */
+    font-family: 'Bungee Hairline', sans-serif;
 }
   
-  .col {
+.col {
     text-align: center;
     flex: 1; /* Distribute columns evenly in a row */
 }
@@ -19,9 +20,8 @@
 /* Reset text-center styling for specific elements */
 .col.text-center {
     text-align: center;
+    font-family: 'Bungee Hairline', sans-serif;
 }
-
-/* Icon Styling */
 
 /* Icon Styling */
 
