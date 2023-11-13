@@ -55,8 +55,6 @@ body {
   cursor: pointer;
   margin: 10px;
   transition: transform 0.3s ease-in-out;
-  border: 1px solid #ddd; /* Add border for better visibility */
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add box shadow for better visibility */
 }
 
 .thumbnail.active {

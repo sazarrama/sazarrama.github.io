@@ -45,12 +45,17 @@ function loadImages() {
     const imagePath = "https://api.github.com/repos/sazarrama/sazarrama.github.io/contents/portfolio";
     const thumbnailsContainer = document.getElementById("thumbnailsContainer");
 
+    if (!thumbnailsContainer) {
+        console.error("thumbnailsContainer not found");
+        return;
+    }
+
     fetch(imagePath)
         .then(response => response.json())
         .then(data => {
             data.forEach(file => {
                 if (file.type === "file" && file.name.endsWith(".jpg")) {
-                    const imageNumber = file.name.split(".")[0]; // Extracting the image number
+                    const imageNumber = file.name.split(".")[0];
                     const thumbnailDiv = createThumbnailDiv(imageNumber);
                     thumbnailsContainer.appendChild(thumbnailDiv);
                 }
