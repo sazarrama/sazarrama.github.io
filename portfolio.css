@@ -16,13 +16,13 @@
   text-align: center;
 }
 
-.row {
-  display: flex;
-  justify-content: center;
-}
-
 .col {
   padding: 10px;
+  font-family: 'Bungee Hairline', sans-serif;
+}
+
+.col.text-center {
+  text-align: center;
   font-family: 'Bungee Hairline', sans-serif;
 }
 
@@ -77,6 +77,8 @@
   margin: auto;
 }
 
+/* Modal Styling */
+
 /* Center the modal vertically */
 .modal {
   display: flex;
@@ -98,11 +100,7 @@
 /* Optional: Center the modal header and body content */
 .modal-content {
   text-align: center;
-}
-
-/* Optional: Override Bootstrap's modal-dialog positioning */
-.modal-dialog {
-  margin: 0;
+  border: none;
 }
 
 /* Optional: Adjust the modal size if needed */
@@ -110,3 +108,22 @@
   max-width: 80%; /* You can adjust the percentage as needed */
 }
 
+.btn-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-top: -5px; /* Adjust the value based on your preference */
+}
+
+#imageModal .modal-header {
+  border: none;
+}
+
+.modal-body {
+  border: none;
+}

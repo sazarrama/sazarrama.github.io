@@ -11,10 +11,11 @@
     justify-content: center; /* Center the columns horizontally */
     font-family: 'Bungee Hairline', sans-serif;
 }
-  
+
 .col {
     text-align: center;
     flex: 1; /* Distribute columns evenly in a row */
+    margin-top: 20px; /* Adjust the value based on your preference */
 }
 
 /* Reset text-center styling for specific elements */
@@ -25,6 +26,12 @@
 
 /* Icon Styling */
 
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .icon-link {
     text-align: center;
     display: flex;
@@ -33,8 +40,16 @@
 
 .icon-link i {
     font-size: 24px; /* Adjust the size as needed */
-    margin-right: 10px; /* Adjust the spacing between the icons */
+    margin-right: 5px; /* Adjust the spacing between the icons */
 }
+
+/* Reset text-center styling for specific elements */
+.col.text-center {
+    text-align: center;
+    font-family: 'Bungee Hairline', sans-serif;
+}
+
+
 
 
   

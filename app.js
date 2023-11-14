@@ -163,10 +163,11 @@ $(function () {
     });
 });
 
-function openCarousel() {
+function openCarousel(imageIndex) {
     // Add each image to the carousel
     const carouselInner = document.querySelector('#modalImageCarousel .carousel-inner');
     carouselInner.innerHTML = '';
+
     imagePaths.forEach((path, index) => {
         const carouselItem = document.createElement('div');
         carouselItem.classList.add('carousel-item');
@@ -179,9 +180,23 @@ function openCarousel() {
 
     // Show the modal with the carousel
     $('#imageModal').modal('show');
+
+    // Initialize the Bootstrap carousel
+    $('#modalImageCarousel').carousel();
+
+    // Handle next and previous button clicks
+    $('#modalImageCarouselPrev').on('click', function() {
+        $('#modalImageCarousel').carousel('prev');
+    });
+
+    $('#modalImageCarouselNext').on('click', function() {
+        $('#modalImageCarousel').carousel('next');
+    });
 }
 
 // Function to close the carousel modal
 function closeCarousel() {
     $('#imageModal').modal('hide');
 }
+
+
