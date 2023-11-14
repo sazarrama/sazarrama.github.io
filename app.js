@@ -49,12 +49,24 @@ function loadCommon() {
             commonContainer.innerHTML = commonData;
             document.body.insertBefore(commonContainer, document.body.firstChild);
 
+            // jQuery-dependent code inside $(document).ready()
+            $(document).ready(function () {
+                // Your jQuery code goes here
+                $(".thumbnail").on("click", function () {
+                    var imageIndex = $(this).data("image-index");
+
+                    // Open the carousel with the selected image index
+                    openCarousel(imageIndex);
+                });
+            });
+
             hideLoading();
             showContent();
             loadImages();
         })
         .catch(error => console.error(error));
 }
+
 
 function loadFooter() {
     fetch("https://sazarrama.github.io/footer.html")
