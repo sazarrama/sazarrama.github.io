@@ -46,17 +46,6 @@ function loadCommon() {
             commonContainer.innerHTML = commonData;
             document.body.insertBefore(commonContainer, document.body.firstChild);
 
-            // jQuery-dependent code inside $(document).ready()
-            $(document).ready(function () {
-                // Your jQuery code goes here
-                $(".thumbnail").on("click", function () {
-                    var imageIndex = $(this).data("image-index");
-
-                    // Open the carousel with the selected image index
-                    openCarousel(imageIndex);
-                });
-            });
-
             hideLoading();
             showContent();
             loadImages();
@@ -107,9 +96,14 @@ function loadImages() {
         return;
     }
 
+    // Clear existing thumbnails
+    thumbnailsContainer.innerHTML = "";
+
     fetch(imagePath)
         .then(response => response.json())
         .then(data => {
+            console.log("Data received from the API:", data);
+
             data.forEach(file => {
                 if (file.type === "file" && file.name.endsWith(".jpg")) {
                     const imageNumber = file.name.split(".")[0];
@@ -144,6 +138,13 @@ function showContent() {
     document.getElementById('content').style.display = 'block';
 }
 
+$(document).on("click", ".thumbnail", function () {
+    var imageIndex = $(this).data("image-index");
+
+    // Open the carousel with the selected image index
+    openCarousel(imageIndex);
+});
+
 function openCarousel(imageNumber) {
     // Fetch all image URLs for the carousel
     const imagePaths = [];
@@ -173,7 +174,7 @@ function closeCarousel() {
     $('#imageModal').modal('hide');
 }
 
-$(document).ready(function () {
+$(function () {
     // Handle thumbnail click event
     $(".thumbnail").on("click", function () {
         var imageIndex = $(this).data("image-index");
