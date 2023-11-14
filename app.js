@@ -67,7 +67,7 @@ function createThumbnailDiv(imageNumber) {
     const thumbnailDiv = document.createElement("div");
     thumbnailDiv.classList.add("thumbnail");
     const imageSrc = `https://raw.githubusercontent.com/sazarrama/sazarrama.github.io/main/portfolio/${imageNumber}.jpg`;
-    thumbnailDiv.innerHTML = `<img src="${imageSrc}" class="d-block w-100" alt="Image ${imageNumber}">`;
+    thumbnailDiv.innerHTML = `<img src="${imageSrc}" class="d-block w-100" alt="Image ${imageNumber}" onclick="openCarousel(${imageNumber})">`;
     return thumbnailDiv;
 }
 
@@ -81,4 +81,32 @@ function hideLoading() {
 
 function showContent() {
     document.getElementById('content').style.display = 'block';
+}
+
+function openCarousel(imageNumber) {
+    // Fetch all image URLs for the carousel
+    const imagePaths = [];
+    for (let i = 1; i <= 14; i++) {
+        imagePaths.push(`https://raw.githubusercontent.com/sazarrama/sazarrama.github.io/main/portfolio/${i}.jpg`);
+    }
+
+    // Add each image to the carousel
+    const carouselInner = document.querySelector('#imageCarousel .carousel-inner');
+    carouselInner.innerHTML = '';
+    imagePaths.forEach((path, index) => {
+        const carouselItem = document.createElement('div');
+        carouselItem.classList.add('carousel-item');
+        if (index === 0) {
+            carouselItem.classList.add('active');
+        }
+        carouselItem.innerHTML = `<img src="${path}" class="d-block w-100" alt="Image ${index + 1}">`;
+        carouselInner.appendChild(carouselItem);
+    });
+
+    // Show the modal with the carousel
+    $('#imageCarousel').modal('show');
+}
+
+function closeCarousel() {
+    $('#imageCarousel').modal('hide');
 }
