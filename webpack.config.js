@@ -1,8 +1,21 @@
-// webpack.config.js
+const path = require('path');
 const autoprefixer = require('autoprefixer');
 
+plugins: [
+  new webpack.ProvidePlugin({
+    $: 'jquery',
+    jQuery: 'jquery',
+  }),
+]
+
 module.exports = {
-  // other configurations...
+  resolve: {
+    alias: {
+      // Add Bootstrap and jQuery aliases
+      'bootstrap': 'bootstrap/dist/js/bootstrap.bundle.js',
+      'jquery': 'jquery',
+    },
+  },
 
   module: {
     rules: [
