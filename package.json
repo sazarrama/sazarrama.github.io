@@ -14,7 +14,7 @@
   "scripts": {
     "build": "webpack"
   },
-  "browser" {
-    "module-name": "C:/Program Files/Google/Chrome/Application"
+  "browser":{
+    "module-name": "https://github.com/sazarrama/sazarrama.github.io/tree/main/node_modules/webpack"
   }
 }
