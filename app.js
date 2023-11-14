@@ -1,8 +1,30 @@
 window.onload = function () {
-    loadCommon();
+    
+    loadJQuery(); //Loads separately as app.js has JQuery dependencies
+    loadCommon(); 
     loadLoading(); // Load and show the loading page initially
     loadFooter();
 };
+
+function loadJQuery(callback) {
+    // Check if jQuery is already loaded
+    if (typeof jQuery === 'undefined') {
+        // Create a script element
+        var script = document.createElement('script');
+        
+        // Set the source to the jQuery CDN (you can change this to your local path if needed)
+        script.src = 'https://code.jquery.com/jquery-3.6.4.min.js';
+
+        // Set the onload callback to execute the provided callback function
+        script.onload = callback;
+
+        // Append the script element to the document head
+        document.head.appendChild(script);
+    } else {
+        // jQuery is already loaded, execute the callback directly
+        callback();
+    }
+}
 
 function loadLoading() {
     fetch("https://sazarrama.github.io/loading.html")
