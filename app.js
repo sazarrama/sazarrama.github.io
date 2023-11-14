@@ -6,7 +6,6 @@ window.onload = function () {
     });
 };
 
-// Load jQuery first
 function loadJQuery(callback) {
     // Check if jQuery is already loaded
     if (typeof jQuery === 'undefined') {
@@ -23,8 +22,8 @@ function loadJQuery(callback) {
 loadJQuery(function () {
     // jQuery-dependent code inside $(document).ready()
     $(function () {
-        // Your jQuery code goes here
-        $(".thumbnail").on("click", function () {
+        // Event listener for thumbnail clicks using event delegation
+        $(document).on("click", ".thumbnail", function () {
             var imageIndex = $(this).data("image-index");
 
             // Open the carousel with the selected image index
@@ -87,8 +86,11 @@ function showContent() {
     document.getElementById('content').style.display = 'block';
 }
 
+const imagePath = Array.from({ length: 14 }, (_, i) => `https://raw.githubusercontent.com/sazarrama/sazarrama.github.io/main/portfolio/${i + 1}.jpg`);
+
 function loadImages() {
-    const imagePath = "https://api.github.com/repos/sazarrama/sazarrama.github.io/contents/portfolio";
+    // Fetch all image URLs for the carousel
+
     const thumbnailsContainer = document.getElementById("grid-container");
 
     if (!thumbnailsContainer) {
@@ -107,10 +109,15 @@ function loadImages() {
             data.forEach(file => {
                 if (file.type === "file" && file.name.endsWith(".jpg")) {
                     const imageNumber = file.name.split(".")[0];
-                    const thumbnailDiv = createThumbnailDiv(imageNumber);
+                    const thumbnailDiv = createThumbnailDiv(imageNumber, imagePaths);
                     thumbnailsContainer.appendChild(thumbnailDiv);
                 }
             });
+
+            for (let i = 1; i <= 14; i++) {
+                const thumbnailDiv = createThumbnailDiv(i);
+                thumbnailsContainer.appendChild(thumbnailDiv);
+            }
 
             // Initialize the Bootstrap carousel
             $('#imageCarousel').carousel();
@@ -118,11 +125,11 @@ function loadImages() {
         .catch(error => console.error(error));
 }
 
-function createThumbnailDiv(imageNumber) {
+function createThumbnailDiv(imageNumber, imagePaths) {
     const thumbnailDiv = document.createElement("div");
     thumbnailDiv.classList.add("thumbnail");
-    const imageSrc = `https://raw.githubusercontent.com/sazarrama/sazarrama.github.io/main/portfolio/${imageNumber}.jpg`;
-    thumbnailDiv.innerHTML = `<img src="${imageSrc}" class="d-block w-100" alt="Image ${imageNumber}" onclick="openCarousel(${imageNumber})">`;
+    const imageSrc = imagePaths[imageNumber - 1]; // Adjust the index
+    thumbnailDiv.innerHTML = `<img src="${imageSrc}" class="d-block w-100" alt="Image ${imageNumber}" onclick="openCarousel(${imageNumber}, ${JSON.stringify(imagePaths)})">`;
     return thumbnailDiv;
 }
 
@@ -145,13 +152,7 @@ $(document).on("click", ".thumbnail", function () {
     openCarousel(imageIndex);
 });
 
-function openCarousel(imageIndex) {
-    // Fetch all image URLs for the carousel
-    const imagePaths = [];
-    for (let i = 1; i <= 14; i++) {
-        imagePaths.push(`https://raw.githubusercontent.com/sazarrama/sazarrama.github.io/main/portfolio/${i}.jpg`);
-    }
-
+function openCarousel(imageIndex, imagePaths) {
     // Add each image to the carousel
     const carouselInner = document.querySelector('#modalImageCarousel .carousel-inner');
     carouselInner.innerHTML = '';
