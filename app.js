@@ -13,7 +13,7 @@ function loadJQuery(callback) {
         var script = document.createElement('script');
         
         // Set the source to the jQuery CDN (you can change this to your local path if needed)
-        script.src = 'https://code.jquery.com/jquery-3.6.4.min.js';
+        script.src = 'https://github.com/sazarrama/sazarrama.github.io/tree/main/node_modules/jquery/dist/jquery.min.js';
 
         // Set the onload callback to execute the provided callback function
         script.onload = function () {
