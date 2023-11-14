@@ -133,7 +133,6 @@ function openCarousel(imageNumber) {
     prevButton.role = 'button';
     prevButton.setAttribute('data-slide', 'prev');
     prevButton.innerHTML = '<span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span>';
-    carouselInner.appendChild(prevButton);
 
     // Add the next button
     const nextButton = document.createElement('a');
@@ -142,7 +141,10 @@ function openCarousel(imageNumber) {
     nextButton.role = 'button';
     nextButton.setAttribute('data-slide', 'next');
     nextButton.innerHTML = '<span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span>';
-    carouselInner.appendChild(nextButton);
+
+    // Append controls outside of carousel-inner
+    carouselInner.parentNode.appendChild(prevButton);
+    carouselInner.parentNode.appendChild(nextButton);
 
     // Show the modal with the carousel
     modal.style.display = 'block';
