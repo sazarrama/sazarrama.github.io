@@ -56,6 +56,9 @@ function loadImages() {
                     thumbnailsContainer.appendChild(thumbnailDiv);
                 }
             });
+
+            // Initialize the Bootstrap carousel
+            $('#imageCarousel').carousel();
         })
         .catch(error => console.error(error));
 }
@@ -63,13 +66,8 @@ function loadImages() {
 function createThumbnailDiv(imageNumber) {
     const thumbnailDiv = document.createElement("div");
     thumbnailDiv.classList.add("thumbnail");
-    thumbnailDiv.addEventListener("click", function () {
-        openCarousel(imageNumber);
-    });
-
     const imageSrc = `https://raw.githubusercontent.com/sazarrama/sazarrama.github.io/main/portfolio/${imageNumber}.jpg`;
     thumbnailDiv.innerHTML = `<img src="${imageSrc}" class="d-block w-100" alt="Image ${imageNumber}">`;
-
     return thumbnailDiv;
 }
 
@@ -83,73 +81,4 @@ function hideLoading() {
 
 function showContent() {
     document.getElementById('content').style.display = 'block';
-}
-
-function openModal(imageNumber) {
-    const modal = document.getElementById('myModal');
-    const modalContent = document.querySelector('.modal-content');
-    const imagePath = `https://raw.githubusercontent.com/sazarrama/sazarrama.github.io/main/portfolio/${imageNumber}.jpg`;
-
-    modalContent.innerHTML = `<img src="${imagePath}" class="d-block w-100" alt="Image ${imageNumber}">`;
-    modal.style.display = 'block';
-}
-
-// Close the modal when clicking outside the image
-window.addEventListener('click', function (event) {
-    const modal = document.getElementById('myModal');
-    if (event.target === modal) {
-        modal.style.display = 'none';
-    }
-});
-
-function openCarousel(imageNumber) {
-    const modal = document.getElementById('myModal');
-    const carouselInner = document.querySelector('#imageCarousel .carousel-inner');
-
-    // Clear existing carousel images
-    carouselInner.innerHTML = '';
-
-    // Fetch all image URLs for the carousel
-    const imagePaths = [];
-    for (let i = 1; i <= 14; i++) {
-        imagePaths.push(`https://raw.githubusercontent.com/sazarrama/sazarrama.github.io/main/portfolio/${i}.jpg`);
-    }
-
-    // Add each image to the carousel
-    imagePaths.forEach((path, index) => {
-        const carouselItem = document.createElement('div');
-        carouselItem.classList.add('carousel-item');
-        if (index === 0) {
-            carouselItem.classList.add('active');
-        }
-        carouselItem.innerHTML = `<div class="carousel-item"><img src="${path}" class="d-block w-100" alt="Image ${index + 1}"></div>`;
-        carouselInner.appendChild(carouselItem);
-    });
-
-    // Add the previous button
-    const prevButton = document.createElement('a');
-    prevButton.classList.add('carousel-control-prev');
-    prevButton.href = '#imageCarousel';
-    prevButton.role = 'button';
-    prevButton.setAttribute('data-slide', 'prev');
-    prevButton.innerHTML = '<span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span>';
-
-    // Add the next button
-    const nextButton = document.createElement('a');
-    nextButton.classList.add('carousel-control-next');
-    nextButton.href = '#imageCarousel';
-    nextButton.role = 'button';
-    nextButton.setAttribute('data-slide', 'next');
-    nextButton.innerHTML = '<span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span>';
-
-    // Append controls outside of carousel-inner
-    carouselInner.parentNode.appendChild(prevButton);
-    carouselInner.parentNode.appendChild(nextButton);
-
-    // Show the modal with the carousel
-    modal.style.display = 'block';
-}
-
-function closeCarousel() {
-    document.getElementById('myModal').style.display = 'none';
 }
