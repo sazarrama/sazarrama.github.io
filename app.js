@@ -145,7 +145,7 @@ $(document).on("click", ".thumbnail", function () {
     openCarousel(imageIndex);
 });
 
-function openCarousel(imageNumber) {
+function openCarousel(imageIndex) {
     // Fetch all image URLs for the carousel
     const imagePaths = [];
     for (let i = 1; i <= 14; i++) {
