@@ -102,9 +102,6 @@ window.addEventListener('click', function (event) {
     }
 });
 
-// Declare imagePaths as a global variable
-let imagePaths = [];
-
 function openCarousel(imageNumber) {
     const modal = document.getElementById('myModal');
     const carouselInner = document.querySelector('#imageCarousel .carousel-inner');
@@ -113,6 +110,7 @@ function openCarousel(imageNumber) {
     carouselInner.innerHTML = '';
 
     // Fetch all image URLs for the carousel
+    const imagePaths = [];
     for (let i = 1; i <= 14; i++) {
         imagePaths.push(`https://raw.githubusercontent.com/sazarrama/sazarrama.github.io/main/portfolio/${i}.jpg`);
     }
