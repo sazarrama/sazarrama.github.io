@@ -22,7 +22,7 @@ function loadJQuery(callback) {
 // After jQuery is loaded, load other scripts
 loadJQuery(function () {
     // jQuery-dependent code inside $(document).ready()
-    $(document).ready(function () {
+    $(function () {
         // Your jQuery code goes here
         $(".thumbnail").on("click", function () {
             var imageIndex = $(this).data("image-index");
