@@ -122,7 +122,7 @@ function openCarousel(imageNumber) {
         if (index === 0) {
             carouselItem.classList.add('active');
         }
-        carouselItem.innerHTML = `<img src="${path}" class="d-block w-100" alt="Image ${index + 1}">`;
+        carouselItem.innerHTML = `<div class="carousel-item"><img src="${path}" class="d-block w-100" alt="Image ${index + 1}"></div>`;
         carouselInner.appendChild(carouselItem);
     });
 
