@@ -86,11 +86,11 @@ function showContent() {
     document.getElementById('content').style.display = 'block';
 }
 
-const imagePath = Array.from({ length: 14 }, (_, i) => `https://raw.githubusercontent.com/sazarrama/sazarrama.github.io/main/portfolio/${i + 1}.jpg`);
+const imagePaths = Array.from({ length: 14 }, (_, i) => `https://raw.githubusercontent.com/sazarrama/sazarrama.github.io/main/portfolio/${i + 1}.jpg`);
 
 function loadImages() {
     // Fetch all image URLs for the carousel
-
+    const imagePath = imagePaths
     const thumbnailsContainer = document.getElementById("grid-container");
 
     if (!thumbnailsContainer) {
@@ -109,15 +109,10 @@ function loadImages() {
             data.forEach(file => {
                 if (file.type === "file" && file.name.endsWith(".jpg")) {
                     const imageNumber = file.name.split(".")[0];
-                    const thumbnailDiv = createThumbnailDiv(imageNumber, imagePaths);
+                    const thumbnailDiv = createThumbnailDiv(imageNumber);
                     thumbnailsContainer.appendChild(thumbnailDiv);
                 }
             });
-
-            for (let i = 1; i <= 14; i++) {
-                const thumbnailDiv = createThumbnailDiv(i);
-                thumbnailsContainer.appendChild(thumbnailDiv);
-            }
 
             // Initialize the Bootstrap carousel
             $('#imageCarousel').carousel();
