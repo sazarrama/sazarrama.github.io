@@ -6,40 +6,37 @@ window.onload = function () {
     });
 };
 
+// Load jQuery first
 function loadJQuery(callback) {
     // Check if jQuery is already loaded
     if (typeof jQuery === 'undefined') {
-        // Create a script element
         var script = document.createElement('script');
-        
-        // Set the source to the jQuery CDN (you can change this to your local path if needed)
-        script.src = 'https://github.com/sazarrama/sazarrama.github.io/tree/main/node_modules/jquery/dist/jquery.min.js';
-
-        // Set the onload callback to execute the provided callback function
-        script.onload = function () {
-            // jQuery is now loaded, execute the provided callback function
-            callback();
-        };
-
-        // Append the script element to the document head
+        script.src = 'https://code.jquery.com/jquery-3.6.4.min.js';
+        script.onload = callback;
         document.head.appendChild(script);
     } else {
-        // jQuery is already loaded, execute the callback directly
         callback();
     }
 }
 
-function loadLoading() {
-    fetch("https://sazarrama.github.io/loading.html")
-        .then(response => response.text())
-        .then(loadingData => {
-            const loadingContainer = document.getElementById('loading');
-            if (loadingContainer) {
-                loadingContainer.innerHTML = loadingData;
-            }
-        })
-        .catch(error => console.error(error));
-}
+// After jQuery is loaded, load other scripts
+loadJQuery(function () {
+    // jQuery-dependent code inside $(document).ready()
+    $(document).ready(function () {
+        // Your jQuery code goes here
+        $(".thumbnail").on("click", function () {
+            var imageIndex = $(this).data("image-index");
+
+            // Open the carousel with the selected image index
+            openCarousel(imageIndex);
+        });
+    });
+
+    // Load other scripts after jQuery is ready
+    loadCommon();
+    loadLoading(); // Load and show the loading page initially
+    loadFooter();
+});
 
 function loadCommon() {
     fetch("https://sazarrama.github.io/common.html")
@@ -67,6 +64,17 @@ function loadCommon() {
         .catch(error => console.error(error));
 }
 
+function loadLoading() {
+    fetch("https://sazarrama.github.io/loading.html")
+        .then(response => response.text())
+        .then(loadingData => {
+            const loadingContainer = document.getElementById('loading');
+            if (loadingContainer) {
+                loadingContainer.innerHTML = loadingData;
+            }
+        })
+        .catch(error => console.error(error));
+}
 
 function loadFooter() {
     fetch("https://sazarrama.github.io/footer.html")
