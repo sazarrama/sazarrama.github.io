@@ -88,6 +88,7 @@ function showContent() {
 const imagePaths = Array.from({ length: 14 }, (_, i) => `https://raw.githubusercontent.com/sazarrama/sazarrama.github.io/main/portfolio/${i + 1}.jpg`);
 
 function loadImages() {
+    const imagePaths = Array.from({ length: 14 }, (_, i) => `https://raw.githubusercontent.com/sazarrama/sazarrama.github.io/main/portfolio/${i + 1}.jpg`);
     const thumbnailsContainer = document.getElementById("grid-container");
 
     if (!thumbnailsContainer) {
@@ -98,15 +99,32 @@ function loadImages() {
     // Clear existing thumbnails
     thumbnailsContainer.innerHTML = "";
 
-    // Create thumbnails using the imagePaths array
-    imagePaths.forEach((path, index) => {
-        const imageNumber = index + 1;
-        const thumbnailDiv = createThumbnailDiv(imageNumber, path);
-        thumbnailsContainer.appendChild(thumbnailDiv);
-    });
+    fetch(imagePaths)
+        .then(response => response.json())
+        .then(data => {
+            console.log("Data received from the API:", data);
 
-    // Initialize the Bootstrap carousel
-    $('#imageCarousel').carousel();
+            data.forEach(file => {
+                if (file.type === "file" && file.name.endsWith(".jpg")) {
+                    const imageNumber = file.name.split(".")[0];
+                    const thumbnailDiv = createThumbnailDiv(imageNumber);
+                    thumbnailsContainer.appendChild(thumbnailDiv);
+
+                    // Add click and touchend event listeners
+                    thumbnailDiv.addEventListener('click', () => handleThumbnailClick(imageNumber));
+                    thumbnailDiv.addEventListener('touchend', () => handleThumbnailClick(imageNumber));
+                }
+            });
+
+            // Initialize the Bootstrap carousel
+            $('#imageCarousel').carousel();
+        })
+        .catch(error => console.error(error));
+}
+
+function handleThumbnailClick(imageNumber) {
+    // Add your logic for handling thumbnail clicks or taps here
+    console.log(`Thumbnail ${imageNumber} clicked or tapped`);
 }
 
 function createThumbnailDiv(imageNumber, imagePath) {
