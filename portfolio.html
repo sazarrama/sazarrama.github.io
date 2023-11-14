@@ -3,8 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="portfolio.css">
+    <script src="https://raw.githubusercontent.com/sazarrama/sazarrama.github.io/main/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="app.js" type="text/javascript" defer></script>
+    <link rel="stylesheet" type="text/css" href="portfolio.css">
     <title>Sarah Adair - Portfolio</title>
 </head>
 
@@ -24,20 +25,34 @@
             <!-- Thumbnails will be dynamically added here -->
         </div>
 
-        <!-- Bootstrap Carousel -->
-        <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <!-- Images will be dynamically added here -->
+        <!-- Modal -->
+        <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="imageModalLabel">Image Carousel</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Bootstrap Carousel will be dynamically added here -->
+                        <div id="modalImageCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <!-- Images will be dynamically added here -->
+                            </div>
+                            <a class="carousel-control-prev" href="#modalImageCarousel" role="button" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="false"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#modalImageCarousel" role="button" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="false"></span>
+                                <span class="visually-hidden">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <a class="carousel-control-prev" href="#imageCarousel" role="button" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="false"></span>
-                <span class="visually-hidden">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#imageCarousel" role="button" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="false"></span>
-                <span class="visually-hidden">Next</span>
-            </a>
-        </div>       
+        </div>
+     
 
         <div id="footer"></div>
     

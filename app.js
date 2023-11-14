@@ -107,7 +107,7 @@ function openCarousel(imageNumber) {
     }
 
     // Add each image to the carousel
-    const carouselInner = document.querySelector('#imageCarousel .carousel-inner');
+    const carouselInner = document.querySelector('#modalImageCarousel .carousel-inner');
     carouselInner.innerHTML = '';
     imagePaths.forEach((path, index) => {
         const carouselItem = document.createElement('div');
@@ -120,9 +120,20 @@ function openCarousel(imageNumber) {
     });
 
     // Show the modal with the carousel
-    $('#imageCarousel').modal('show');
+    $('#imageModal').modal('show');
 }
 
+// Function to close the carousel modal
 function closeCarousel() {
-    $('#imageCarousel').modal('hide');
+    $('#imageModal').modal('hide');
 }
+
+$(document).ready(function () {
+    // Handle thumbnail click event
+    $(".thumbnail").on("click", function () {
+        var imageIndex = $(this).data("image-index");
+
+        // Open the carousel with the selected image index
+        openCarousel(imageIndex);
+    });
+});
