@@ -1,6 +1,6 @@
 window.onload = function () {
-    loadLoading(); // Load and show the loading page initially
     loadCommon();
+    loadLoading(); // Load and show the loading page initially
     loadFooter();
 };
 
