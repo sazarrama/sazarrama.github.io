@@ -1,6 +1,7 @@
 window.onload = function () {
     loadLoading(); // Load and show the loading page initially
-    loadFooterAndCommon();
+    loadCommon();
+    loadFooter();
 };
 
 function loadLoading() {
@@ -15,26 +16,41 @@ function loadLoading() {
         .catch(error => console.error(error));
 }
 
-function loadFooterAndCommon() {
-    Promise.all([
-        fetch("https://sazarrama.github.io/common.html").then(response => response.text()),
-        fetch("https://sazarrama.github.io/footer.html").then(response => response.text())
-    ]).then(([commonData, footerData]) => {
-        const commonContainer = document.createElement('div');
-        commonContainer.innerHTML = commonData;
-        document.body.insertBefore(commonContainer, document.body.firstChild);
+function loadCommon() {
+    fetch("https://sazarrama.github.io/common.html")
+        .then(response => response.text())
+        .then(commonData => {
+            const commonContainer = document.createElement('div');
+            commonContainer.innerHTML = commonData;
+            document.body.insertBefore(commonContainer, document.body.firstChild);
 
-        const footerElement = document.getElementById("footer");
-        if (footerElement) {
-            footerElement.innerHTML = footerData;
-        } else {
-            console.warn("Footer element not found.");
-        }
+            hideLoading();
+            showContent();
+            loadImages();
+        })
+        .catch(error => console.error(error));
+}
 
-        hideLoading();
-        showContent();
-        loadImages();
-    }).catch(error => console.error(error));
+function loadFooter() {
+    fetch("https://sazarrama.github.io/footer.html")
+        .then(response => response.text())
+        .then(footerData => {
+            const footerElement = document.getElementById("footer");
+            if (footerElement) {
+                footerElement.innerHTML = footerData;
+            } else {
+                console.warn("Footer element not found.");
+            }
+        })
+        .catch(error => console.error(error));
+}
+
+function hideLoading() {
+    document.getElementById('loading-container').style.display = 'none';
+}
+
+function showContent() {
+    document.getElementById('content').style.display = 'block';
 }
 
 function loadImages() {
