@@ -1,9 +1,9 @@
 window.onload = function () {
-    
-    loadJQuery(); //Loads separately as app.js has JQuery dependencies
-    loadCommon(); 
-    loadLoading(); // Load and show the loading page initially
-    loadFooter();
+    loadJQuery(function () {
+        loadCommon();
+        loadLoading(); // Load and show the loading page initially
+        loadFooter();
+    });
 };
 
 function loadJQuery(callback) {
@@ -16,7 +16,10 @@ function loadJQuery(callback) {
         script.src = 'https://code.jquery.com/jquery-3.6.4.min.js';
 
         // Set the onload callback to execute the provided callback function
-        script.onload = callback;
+        script.onload = function () {
+            // jQuery is now loaded, execute the provided callback function
+            callback();
+        };
 
         // Append the script element to the document head
         document.head.appendChild(script);
