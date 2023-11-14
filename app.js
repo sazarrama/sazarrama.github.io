@@ -85,12 +85,9 @@ function hideLoading() {
 function showContent() {
     document.getElementById('content').style.display = 'block';
 }
-
 const imagePaths = Array.from({ length: 14 }, (_, i) => `https://raw.githubusercontent.com/sazarrama/sazarrama.github.io/main/portfolio/${i + 1}.jpg`);
 
 function loadImages() {
-    // Fetch all image URLs for the carousel
-    const imagePath = imagePaths
     const thumbnailsContainer = document.getElementById("grid-container");
 
     if (!thumbnailsContainer) {
@@ -101,31 +98,40 @@ function loadImages() {
     // Clear existing thumbnails
     thumbnailsContainer.innerHTML = "";
 
-    fetch(imagePath)
-        .then(response => response.json())
-        .then(data => {
-            console.log("Data received from the API:", data);
+    // Create thumbnails using the imagePaths array
+    imagePaths.forEach((path, index) => {
+        const imageNumber = index + 1;
+        const thumbnailDiv = createThumbnailDiv(imageNumber, path);
+        thumbnailsContainer.appendChild(thumbnailDiv);
+    });
 
-            data.forEach(file => {
-                if (file.type === "file" && file.name.endsWith(".jpg")) {
-                    const imageNumber = file.name.split(".")[0];
-                    const thumbnailDiv = createThumbnailDiv(imageNumber);
-                    thumbnailsContainer.appendChild(thumbnailDiv);
-                }
-            });
-
-            // Initialize the Bootstrap carousel
-            $('#imageCarousel').carousel();
-        })
-        .catch(error => console.error(error));
+    // Initialize the Bootstrap carousel
+    $('#imageCarousel').carousel();
 }
 
-function createThumbnailDiv(imageNumber, imagePaths) {
+function createThumbnailDiv(imageNumber, imagePath) {
     const thumbnailDiv = document.createElement("div");
     thumbnailDiv.classList.add("thumbnail");
-    const imageSrc = imagePaths[imageNumber - 1]; // Adjust the index
-    thumbnailDiv.innerHTML = `<img src="${imageSrc}" class="d-block w-100" alt="Image ${imageNumber}" onclick="openCarousel(${imageNumber}, ${JSON.stringify(imagePaths)})">`;
+    thumbnailDiv.innerHTML = `<img src="${imagePath}" class="d-block w-100" alt="Image ${imageNumber}" onclick="openCarousel(${imageNumber}, ${JSON.stringify(imagePaths)})">`;
     return thumbnailDiv;
+}
+
+function openCarousel(imageIndex, imagePaths) {
+    // Add each image to the carousel
+    const carouselInner = document.querySelector('#modalImageCarousel .carousel-inner');
+    carouselInner.innerHTML = '';
+    imagePaths.forEach((path, index) => {
+        const carouselItem = document.createElement('div');
+        carouselItem.classList.add('carousel-item');
+        if (index === 0) {
+            carouselItem.classList.add('active');
+        }
+        carouselItem.innerHTML = `<img src="${path}" class="d-block w-100" alt="Image ${index + 1}">`;
+        carouselInner.appendChild(carouselItem);
+    });
+
+    // Show the modal with the carousel
+    $('#imageModal').modal('show');
 }
 
 window.addEventListener('load', function () {
@@ -147,7 +153,17 @@ $(document).on("click", ".thumbnail", function () {
     openCarousel(imageIndex);
 });
 
-function openCarousel(imageIndex, imagePaths) {
+$(function () {
+    // Handle thumbnail click event
+    $(".thumbnail").on("click", function () {
+        var imageIndex = $(this).data("image-index");
+
+        // Open the carousel with the selected image index
+        openCarousel(imageIndex);
+    });
+});
+
+function openCarousel() {
     // Add each image to the carousel
     const carouselInner = document.querySelector('#modalImageCarousel .carousel-inner');
     carouselInner.innerHTML = '';
@@ -169,13 +185,3 @@ function openCarousel(imageIndex, imagePaths) {
 function closeCarousel() {
     $('#imageModal').modal('hide');
 }
-
-$(function () {
-    // Handle thumbnail click event
-    $(".thumbnail").on("click", function () {
-        var imageIndex = $(this).data("image-index");
-
-        // Open the carousel with the selected image index
-        openCarousel(imageIndex);
-    });
-});
