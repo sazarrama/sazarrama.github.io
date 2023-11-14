@@ -122,11 +122,11 @@ function openCarousel(imageIndex) {
     $('#modalImageCarousel').carousel();
 
     // Handle next and previous button clicks
-    $('#modalImageCarouselPrev').on('click', function() {
+    $('#modalImageCarouselPrev').on('tap', function() {
         $('#modalImageCarousel').carousel('prev');
     });
 
-    $('#modalImageCarouselNext').on('click', function() {
+    $('#modalImageCarouselNext').on('tap', function() {
         $('#modalImageCarousel').carousel('next');
     });
 }
@@ -137,7 +137,7 @@ function closeCarousel() {
 }
 
 // Event listener for thumbnail clicks using event delegation
-$(document).on("click", ".thumbnail", function () {
+$(document).on("tap", ".thumbnail", function () {
     var imageIndex = $(this).data("image-index");
 
     // Open the carousel with the selected image index
