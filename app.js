@@ -96,6 +96,14 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Load common, loading, and footer content
+    loadCommon();
+    loadLoading();
+    loadFooter();
+
+    // Initialize and load thumbnails
+    loadImages();
+
     // Event listener for thumbnail clicks using event delegation
     document.body.addEventListener("click", function (event) {
         // Check if the clicked element has the "thumbnail" class
@@ -144,12 +152,4 @@ document.addEventListener('DOMContentLoaded', function () {
             thumbnailsContainer.appendChild(thumbnailDiv);
         });
     }
-
-    // Load common, loading, and footer content
-    loadCommon();
-    loadLoading();
-    loadFooter();
-
-    // Initialize and load thumbnails
-    loadImages();
 });
