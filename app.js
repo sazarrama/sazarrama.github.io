@@ -100,41 +100,33 @@ function createThumbnailDiv(imageNumber, imagePath) {
     return thumbnailDiv;
 }
 
-function openCarousel(imageIndex) {
-    // Add each image to the carousel
+function openCarousel(imagePaths, imageIndex) {
     const carouselInner = document.querySelector('#modalImageCarousel .carousel-inner');
     carouselInner.innerHTML = '';
 
     imagePaths.forEach((path, index) => {
         const carouselItem = document.createElement('div');
         carouselItem.classList.add('carousel-item');
-        if (index === 0) {
+        if (index === imageIndex) {
             carouselItem.classList.add('active');
         }
         carouselItem.innerHTML = `<img src="${path}" class="d-block w-100" alt="Image ${index + 1}">`;
         carouselInner.appendChild(carouselItem);
     });
 
-    // Show the modal with the carousel
-    var modal = new bootstrap.Modal(document.getElementById('imageModal'));
-    modal.show();
+    $('#imageModal').modal('show');
 
-    // Initialize the Bootstrap carousel
-    var carousel = new bootstrap.Carousel(document.getElementById('modalImageCarousel'));
+    // Re-initialize the Bootstrap carousel
+    $('#modalImageCarousel').carousel();
 
     // Handle next and previous button clicks
-    document.getElementById('modalImageCarouselPrev').addEventListener('click', function() {
-        carousel.prev();
+    $('#modalImageCarouselPrev').on('click', function () {
+        $('#modalImageCarousel').carousel('prev');
     });
 
-    document.getElementById('modalImageCarouselNext').addEventListener('click', function() {
-        carousel.next();
+    $('#modalImageCarouselNext').on('click', function () {
+        $('#modalImageCarousel').carousel('next');
     });
-}
-
-// Function to close the carousel modal
-function closeCarousel() {
-    $('#imageModal').modal('hide');
 }
 
 // Event listener for thumbnail clicks using event delegation
