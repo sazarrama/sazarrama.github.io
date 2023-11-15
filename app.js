@@ -1,10 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    window.onload = function () {
-        loadCommon();
-        loadLoading(); // Load and show the loading page initially
-        loadFooter();
-    };
+    loadImages();
 
     function loadCommon() {
         fetch("https://sazarrama.github.io/common.html")
