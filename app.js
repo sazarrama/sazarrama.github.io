@@ -1,22 +1,8 @@
 window.onload = function () {
-    loadJQuery(function () {
-        loadCommon();
-        loadLoading(); // Load and show the loading page initially
-        loadFooter();
-    });
+    loadCommon();
+    loadLoading(); // Load and show the loading page initially
+    loadFooter();
 };
-
-function loadJQuery(callback) {
-    // Check if jQuery is already loaded
-    if (typeof jQuery === 'undefined') {
-        var script = document.createElement('script');
-        script.src = 'https://code.jquery.com/jquery-3.6.4.min.js';
-        script.onload = callback;
-        document.head.appendChild(script);
-    } else {
-        callback();
-    }
-}
 
 function loadCommon() {
     fetch("https://sazarrama.github.io/common.html")
@@ -88,12 +74,24 @@ function loadImages() {
     });
 }
 
-$(function () {
-     // Initialize the Bootstrap carousel
-     $('#imageModal').on('shown.bs.modal', function () {
-        $('#modalImageCarousel').carousel();
+document.addEventListener('DOMContentLoaded', function () {
+    // Initialize the Bootstrap carousel
+    var imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+    imageModal.show();
+
+    var modalImageCarousel = new bootstrap.Carousel(document.getElementById('modalImageCarousel'), {
+        interval: false
     });
-})
+
+    // Handle next and previous button clicks
+    document.getElementById('modalImageCarouselPrev').addEventListener('click', function () {
+        modalImageCarousel.prev();
+    });
+
+    document.getElementById('modalImageCarouselNext').addEventListener('click', function () {
+        modalImageCarousel.next();
+    });
+});
 
 function createThumbnailDiv(imageNumber, imagePath) {
     const thumbnailDiv = document.createElement("div");
@@ -102,7 +100,7 @@ function createThumbnailDiv(imageNumber, imagePath) {
     return thumbnailDiv;
 }
 
-function openCarousel(imagePaths, imageIndex) {
+function openCarousel(imageIndex) {
     const carouselInner = document.querySelector('#modalImageCarousel .carousel-inner');
     carouselInner.innerHTML = '';
 
@@ -116,34 +114,36 @@ function openCarousel(imagePaths, imageIndex) {
         carouselInner.appendChild(carouselItem);
     });
 
-    $('#imageModal').modal('show');
+    var imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+    imageModal.show();
 
-    // Re-initialize the Bootstrap carousel
-    $('#modalImageCarousel').carousel();
-
-    // Handle next and previous button clicks
-    $('#modalImageCarouselPrev').on('click', function () {
-        $('#modalImageCarousel').carousel('prev');
+    var modalImageCarousel = new bootstrap.Carousel(document.getElementById('modalImageCarousel'), {
+        interval: false
     });
 
-    $('#modalImageCarouselNext').on('click', function () {
-        $('#modalImageCarousel').carousel('next');
+    // Handle next and previous button clicks
+    document.getElementById('modalImageCarouselPrev').addEventListener('click', function () {
+        modalImageCarousel.prev();
+    });
+
+    document.getElementById('modalImageCarouselNext').addEventListener('click', function () {
+        modalImageCarousel.next();
     });
 }
 
 // Event listener for thumbnail clicks using event delegation
-$(document).on("tap", ".thumbnail", function () {
-    var imageIndex = $(this).data("image-index");
+document.body.addEventListener("click", function (event) {
+    if (event.target.classList.contains("thumbnail")) {
+        var imageIndex = event.target.dataset.imageIndex;
 
-    // Open the carousel with the selected image index
-    openCarousel(imageIndex);
+        // Open the carousel with the selected image index
+        openCarousel(imageIndex);
+    }
 });
 
 // Handle the Bootstrap modal events
-$('#imageModal').on('shown.bs.modal', function () {
-    $('#modalImageCarousel').carousel();
-});
-
-window.addEventListener('load', function () {
-    hideLoading();
+document.getElementById('imageModal').addEventListener('shown.bs.modal', function () {
+    var modalImageCarousel = new bootstrap.Carousel(document.getElementById('modalImageCarousel'), {
+        interval: false
+    });
 });
