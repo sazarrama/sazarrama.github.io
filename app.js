@@ -101,9 +101,6 @@ document.addEventListener('DOMContentLoaded', function () {
     loadLoading();
     loadFooter();
 
-    // Initialize and load thumbnails
-    loadImages();
-
     // Event listener for thumbnail clicks using event delegation
     document.body.addEventListener("click", function (event) {
         // Check if the clicked element has the "thumbnail" class
@@ -152,4 +149,7 @@ document.addEventListener('DOMContentLoaded', function () {
             thumbnailsContainer.appendChild(thumbnailDiv);
         });
     }
+
+        // Initialize and load thumbnails
+        loadImages();
 });
