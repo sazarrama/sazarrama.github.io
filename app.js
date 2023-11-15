@@ -1,9 +1,23 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    function loadCommon() {
+        fetch("https://sazarrama.github.io/common.html")
+            .then(response => response.text())
+            .then(commonData => {
+                const commonContainer = document.createElement('div');
+                commonContainer.innerHTML = commonData;
+                document.body.insertBefore(commonContainer, document.body.firstChild);
+
+                hideLoading();
+                showContent();
+                loadImages();
+            })
+            .catch(error => console.error(error));
+    }
+    
     const imagePaths = Array.from({ length: 14 }, (_, i) => `https://raw.githubusercontent.com/sazarrama/sazarrama.github.io/main/portfolio/${i + 1}.jpg`);
 
     function loadImages() {
-
         const thumbnailsContainer = document.getElementById("grid-container");
 
         if (!thumbnailsContainer) {
@@ -46,22 +60,8 @@ document.addEventListener('DOMContentLoaded', function () {
         return thumbnailDiv;
     }
 
+    // Call the loadImages function
     loadImages();
-
-    function loadCommon() {
-        fetch("https://sazarrama.github.io/common.html")
-            .then(response => response.text())
-            .then(commonData => {
-                const commonContainer = document.createElement('div');
-                commonContainer.innerHTML = commonData;
-                document.body.insertBefore(commonContainer, document.body.firstChild);
-
-                hideLoading();
-                showContent();
-                loadImages();
-            })
-            .catch(error => console.error(error));
-    }
 
     function loadLoading() {
         fetch("https://sazarrama.github.io/loading.html")
