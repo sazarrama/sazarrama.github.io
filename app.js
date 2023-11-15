@@ -1,7 +1,43 @@
 document.addEventListener('DOMContentLoaded', function () {
+    loadImages();
 
     const imagePaths = Array.from({ length: 14 }, (_, i) => `https://raw.githubusercontent.com/sazarrama/sazarrama.github.io/main/portfolio/${i + 1}.jpg`);
-    loadImages();
+
+    function loadImages() {
+        const thumbnailsContainer = document.getElementById("grid-container");
+
+        if (!thumbnailsContainer) {
+            console.error("thumbnailsContainer not found");
+            return;
+        }
+
+        // Clear existing thumbnails
+        thumbnailsContainer.innerHTML = "";
+
+        // Create thumbnails using the imagePaths array
+        imagePaths.forEach((path, index) => {
+            const imageNumber = index + 1;
+            const thumbnailDiv = createThumbnailDiv(imageNumber, path);
+            thumbnailsContainer.appendChild(thumbnailDiv);
+        });
+
+        // Initialize the Bootstrap carousel
+        var imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+        imageModal.show();
+
+        var modalImageCarousel = new bootstrap.Carousel(document.getElementById('modalImageCarousel'), {
+            interval: false
+        });
+
+        // Handle next and previous button clicks
+        document.getElementById('modalImageCarouselPrev').addEventListener('click', function () {
+            modalImageCarousel.prev();
+        });
+
+        document.getElementById('modalImageCarouselNext').addEventListener('click', function () {
+            modalImageCarousel.next();
+        });
+    }
 
     function loadCommon() {
         fetch("https://sazarrama.github.io/common.html")
@@ -51,44 +87,6 @@ document.addEventListener('DOMContentLoaded', function () {
     function showContent() {
         document.getElementById('content').style.display = 'block';
     }
-
-    function loadImages() {
-        const thumbnailsContainer = document.getElementById("grid-container");
-
-        if (!thumbnailsContainer) {
-            console.error("thumbnailsContainer not found");
-            return;
-        }
-
-        // Clear existing thumbnails
-        thumbnailsContainer.innerHTML = "";
-
-        // Create thumbnails using the imagePaths array
-        imagePaths.forEach((path, index) => {
-            const imageNumber = index + 1;
-            const thumbnailDiv = createThumbnailDiv(imageNumber, path);
-            thumbnailsContainer.appendChild(thumbnailDiv);
-        });
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-        // Initialize the Bootstrap carousel
-        var imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
-        imageModal.show();
-
-        var modalImageCarousel = new bootstrap.Carousel(document.getElementById('modalImageCarousel'), {
-            interval: false
-        });
-
-        // Handle next and previous button clicks
-        document.getElementById('modalImageCarouselPrev').addEventListener('click', function () {
-            modalImageCarousel.prev();
-        });
-
-        document.getElementById('modalImageCarouselNext').addEventListener('click', function () {
-            modalImageCarousel.next();
-        });
-    });
 
     function createThumbnailDiv(imageNumber, imagePath) {
         const thumbnailDiv = document.createElement("div");
