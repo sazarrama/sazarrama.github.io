@@ -86,12 +86,14 @@ function loadImages() {
         const thumbnailDiv = createThumbnailDiv(imageNumber, path);
         thumbnailsContainer.appendChild(thumbnailDiv);
     });
+}
 
-    // Initialize the Bootstrap carousel
-    $('#imageModal').on('shown.bs.modal', function () {
+$(function () {
+     // Initialize the Bootstrap carousel
+     $('#imageModal').on('shown.bs.modal', function () {
         $('#modalImageCarousel').carousel();
     });
-}
+})
 
 function createThumbnailDiv(imageNumber, imagePath) {
     const thumbnailDiv = document.createElement("div");
