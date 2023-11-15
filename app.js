@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    const imagePaths = Array.from({ length: 14 }, (_, i) => `https://raw.githubusercontent.com/sazarrama/sazarrama.github.io/main/portfolio/${i + 1}.jpg`);
     loadImages();
 
     function loadCommon() {
@@ -50,8 +51,6 @@ document.addEventListener('DOMContentLoaded', function () {
     function showContent() {
         document.getElementById('content').style.display = 'block';
     }
-
-    const imagePaths = Array.from({ length: 14 }, (_, i) => `https://raw.githubusercontent.com/sazarrama/sazarrama.github.io/main/portfolio/${i + 1}.jpg`);
 
     function loadImages() {
         const thumbnailsContainer = document.getElementById("grid-container");
