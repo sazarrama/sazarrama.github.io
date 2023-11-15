@@ -1,12 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    // Function to create thumbnail div
     function createThumbnailDiv(imageNumber, imagePath) {
         const thumbnailDiv = document.createElement("div");
         thumbnailDiv.classList.add("thumbnail");
         thumbnailDiv.innerHTML = `<img src="${imagePath}" class="d-block w-100" alt="Image ${imageNumber}" data-image-index="${imageNumber}">`;
         return thumbnailDiv;
     }
-
+    
+    // Function to load common content
     function loadCommon() {
         fetch("https://sazarrama.github.io/common.html")
             .then(response => response.text())
@@ -22,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .catch(error => console.error(error));
     }
 
+    // Function to load loading content
     function loadLoading() {
         fetch("https://sazarrama.github.io/loading.html")
             .then(response => response.text())
@@ -34,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .catch(error => console.error(error));
     }
 
+    // Function to load footer content
     function loadFooter() {
         fetch("https://sazarrama.github.io/footer.html")
             .then(response => response.text())
@@ -48,14 +52,17 @@ document.addEventListener('DOMContentLoaded', function () {
             .catch(error => console.error(error));
     }
 
+    // Function to hide loading
     function hideLoading() {
         document.getElementById('loading-container').style.display = 'none';
     }
 
+    // Function to show content
     function showContent() {
         document.getElementById('content').style.display = 'block';
     }
 
+    // Function to open the carousel
     function openCarousel(imageIndex) {
         const carouselInner = document.querySelector('#modalImageCarousel .carousel-inner');
         carouselInner.innerHTML = '';
@@ -106,49 +113,50 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // Function to load images
+    function loadImages() {
+        const imagePaths = Array.from({ length: 14 }, (_, i) => `https://raw.githubusercontent.com/sazarrama/sazarrama.github.io/main/portfolio/${i + 1}.jpg`);
+        const thumbnailsContainer = document.getElementById("grid-container");
+
+        if (!thumbnailsContainer) {
+            console.error("thumbnailsContainer not found");
+            return;
+        }
+
+        // Clear existing thumbnails
+        thumbnailsContainer.innerHTML = "";
+
+        // Create thumbnails using the imagePaths array
+        imagePaths.forEach((path, index) => {
+            const imageNumber = index + 1;
+            const thumbnailDiv = createThumbnailDiv(imageNumber, path);
+            thumbnailsContainer.appendChild(thumbnailDiv);
+        });
+
+        // Continue with other image-related initialization, e.g., initializing the Bootstrap carousel
+        var imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+        imageModal.show();
+
+        var modalImageCarousel = new bootstrap.Carousel(document.getElementById('modalImageCarousel'), {
+            interval: false
+        });
+
+        // Handle next and previous button clicks
+        document.getElementById('modalImageCarouselPrev').addEventListener('click', function () {
+            modalImageCarousel.prev();
+        });
+
+        document.getElementById('modalImageCarouselNext').addEventListener('click', function () {
+            modalImageCarousel.next();
+        });
+    }
+
     // Load common, loading, and footer content
     loadCommon();
     loadLoading();
     loadFooter();
-    
+
     // Initialize and load thumbnails
     loadImages();
+
 });
-
-// Load images function
-function loadImages() {
-    const imagePaths = Array.from({ length: 14 }, (_, i) => `https://raw.githubusercontent.com/sazarrama/sazarrama.github.io/main/portfolio/${i + 1}.jpg`);
-    const thumbnailsContainer = document.getElementById("grid-container");
-
-    if (!thumbnailsContainer) {
-        console.error("thumbnailsContainer not found");
-        return;
-    }
-
-    // Clear existing thumbnails
-    thumbnailsContainer.innerHTML = "";
-
-    // Create thumbnails using the imagePaths array
-    imagePaths.forEach((path, index) => {
-        const imageNumber = index + 1;
-        const thumbnailDiv = createThumbnailDiv(imageNumber, path);
-        thumbnailsContainer.appendChild(thumbnailDiv);
-    });
-
-    // Continue with other image-related initialization, e.g., initializing the Bootstrap carousel
-    var imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
-    imageModal.show();
-
-    var modalImageCarousel = new bootstrap.Carousel(document.getElementById('modalImageCarousel'), {
-        interval: false
-    });
-
-    // Handle next and previous button clicks
-    document.getElementById('modalImageCarouselPrev').addEventListener('click', function () {
-        modalImageCarousel.prev();
-    });
-
-    document.getElementById('modalImageCarouselNext').addEventListener('click', function () {
-        modalImageCarousel.next();
-    });
-}
