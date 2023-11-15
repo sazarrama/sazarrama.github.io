@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
-    loadImages();
 
     const imagePaths = Array.from({ length: 14 }, (_, i) => `https://raw.githubusercontent.com/sazarrama/sazarrama.github.io/main/portfolio/${i + 1}.jpg`);
 
     function loadImages() {
+
         const thumbnailsContainer = document.getElementById("grid-container");
 
         if (!thumbnailsContainer) {
@@ -38,6 +38,15 @@ document.addEventListener('DOMContentLoaded', function () {
             modalImageCarousel.next();
         });
     }
+
+    function createThumbnailDiv(imageNumber, imagePath) {
+        const thumbnailDiv = document.createElement("div");
+        thumbnailDiv.classList.add("thumbnail");
+        thumbnailDiv.innerHTML = `<img src="${imagePath}" class="d-block w-100" alt="Image ${imageNumber}" data-image-index="${imageNumber}">`;
+        return thumbnailDiv;
+    }
+
+    loadImages();
 
     function loadCommon() {
         fetch("https://sazarrama.github.io/common.html")
@@ -86,13 +95,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function showContent() {
         document.getElementById('content').style.display = 'block';
-    }
-
-    function createThumbnailDiv(imageNumber, imagePath) {
-        const thumbnailDiv = document.createElement("div");
-        thumbnailDiv.classList.add("thumbnail");
-        thumbnailDiv.innerHTML = `<img src="${imagePath}" class="d-block w-100" alt="Image ${imageNumber}" data-image-index="${imageNumber}">`;
-        return thumbnailDiv;
     }
 
     function openCarousel(imageIndex) {
