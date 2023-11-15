@@ -116,18 +116,19 @@ function openCarousel(imageIndex) {
     });
 
     // Show the modal with the carousel
-    $('#imageModal').modal('show');
+    var modal = new bootstrap.Modal(document.getElementById('imageModal'));
+    modal.show();
 
     // Initialize the Bootstrap carousel
-    $('#modalImageCarousel').carousel();
+    var carousel = new bootstrap.Carousel(document.getElementById('modalImageCarousel'));
 
     // Handle next and previous button clicks
-    $('#modalImageCarouselPrev').on('tap', function() {
-        $('#modalImageCarousel').carousel('prev');
+    document.getElementById('modalImageCarouselPrev').addEventListener('click', function() {
+        carousel.prev();
     });
 
-    $('#modalImageCarouselNext').on('tap', function() {
-        $('#modalImageCarousel').carousel('next');
+    document.getElementById('modalImageCarouselNext').addEventListener('click', function() {
+        carousel.next();
     });
 }
 
