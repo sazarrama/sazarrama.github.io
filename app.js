@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
         thumbnailDiv.innerHTML = `<img src="${imagePath}" class="d-block w-100" alt="Image ${imageNumber}" data-image-index="${imageNumber}">`;
         return thumbnailDiv;
     }
-    
+
     // Function to load common content
     function loadCommon() {
         fetch("https://sazarrama.github.io/common.html")
@@ -67,6 +67,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const carouselInner = document.querySelector('#modalImageCarousel .carousel-inner');
         carouselInner.innerHTML = '';
 
+        const imagePaths = Array.from({ length: 14 }, (_, i) => `https://raw.githubusercontent.com/sazarrama/sazarrama.github.io/main/portfolio/${i + 1}.jpg`);
+
         imagePaths.forEach((path, index) => {
             const carouselItem = document.createElement('div');
             carouselItem.classList.add('carousel-item');
@@ -77,11 +79,9 @@ document.addEventListener('DOMContentLoaded', function () {
             carouselInner.appendChild(carouselItem);
         });
 
-        // Show the modal
         var imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
         imageModal.show();
 
-        // Initialize the carousel
         var modalImageCarousel = new bootstrap.Carousel(document.getElementById('modalImageCarousel'), {
             interval: false
         });
@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Event listener for thumbnail clicks using event delegation
     document.body.addEventListener("click", function (event) {
+        // Check if the clicked element has the "thumbnail" class
         if (event.target.classList.contains("thumbnail")) {
             var imageIndex = event.target.dataset.imageIndex;
 
@@ -106,10 +107,20 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Handle the Bootstrap modal events (moved outside the DOMContentLoaded listener)
+    // Handle the Bootstrap modal events
     document.getElementById('imageModal').addEventListener('shown.bs.modal', function () {
+        // Initialize the Bootstrap carousel
         var modalImageCarousel = new bootstrap.Carousel(document.getElementById('modalImageCarousel'), {
             interval: false
+        });
+
+        // Handle next and previous button clicks
+        document.getElementById('modalImageCarouselPrev').addEventListener('click', function () {
+            modalImageCarousel.prev();
+        });
+
+        document.getElementById('modalImageCarouselNext').addEventListener('click', function () {
+            modalImageCarousel.next();
         });
     });
 
@@ -132,23 +143,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const thumbnailDiv = createThumbnailDiv(imageNumber, path);
             thumbnailsContainer.appendChild(thumbnailDiv);
         });
-
-        // Continue with other image-related initialization, e.g., initializing the Bootstrap carousel
-        var imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
-        imageModal.show();
-
-        var modalImageCarousel = new bootstrap.Carousel(document.getElementById('modalImageCarousel'), {
-            interval: false
-        });
-
-        // Handle next and previous button clicks
-        document.getElementById('modalImageCarouselPrev').addEventListener('click', function () {
-            modalImageCarousel.prev();
-        });
-
-        document.getElementById('modalImageCarouselNext').addEventListener('click', function () {
-            modalImageCarousel.next();
-        });
     }
 
     // Load common, loading, and footer content
@@ -158,5 +152,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Initialize and load thumbnails
     loadImages();
-
 });
