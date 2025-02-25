@@ -2,6 +2,12 @@
 
 .footer{
     align-items: center;
+    width: 100%;
+    max-width: 100vw;
+    margin: 0;
+    padding: 0;
+    height: auto; /* Ensures it adjusts to content */
+    min-height: 100px; /* Optional: Set a minimum */
 }
 
 .footer .row {
@@ -11,15 +17,18 @@
     text-align: center;
     width: 100%;
     margin-top: 25px;
+    box-sizing: border-box;
 }
   
 
 .footer .col {
     max-width: unset; /* Allow natural width */
+    box-sizing: border-box;
 }
 
 .footer .container {
     width: 100%; /* Ensure it spans full width */
+    box-sizing: border-box;
 }
   
 
@@ -33,8 +42,8 @@
 .icon-container {
     display: flex;
     justify-content: center;
-    align-items: center;
     margin-top: 15px;
+    align-items: center;
 }
 
 .social-icon {
@@ -58,19 +67,24 @@
 
 .social-icon i {
     font-size: 1.5rem !important;
+    margin: 0 10px;
 }
-
 
 .icon-link {
-  text-align: center;
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
+    width: 160px;  /* Set consistent width */
+    height: 50px;  /* Set consistent height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    flex-wrap: nowrap;
 }
 
+
 .icon-link i {
-  font-size: 20px; /* Adjust the size as needed */
-  margin-right: 30px; /* Adjust the spacing between the icons */
+    font-size: 1.5rem;
+    margin-right: 30px; /* Adjust the spacing between the icons */
 }
 
 .icon-link a {
