@@ -30,8 +30,10 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-     // Function to load loading content
-     function loadLoading() {
+    /* TODO: FIX LOADING */
+
+    // Function to load loading content
+    function loadLoading() {
         fetch("https://sazarrama.github.io/loading.html")
             .then(response => response.text())
             .then(loadingData => {
@@ -136,8 +138,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Load common and footer before proceeding
-    /* TODO: FIX LOADING??? */
-    loadLoading();
     loadCommonAndFooter();
-    hideLoading();
 });
