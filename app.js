@@ -30,6 +30,25 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+     // Function to load loading content
+     function loadLoading() {
+        fetch("https://sazarrama.github.io/loading.html")
+            .then(response => response.text())
+            .then(loadingData => {
+                const loadingContainer = document.getElementById('loading');
+                if (loadingContainer) {
+                    loadingContainer.innerHTML = loadingData;
+                }
+            })
+            .catch(error => console.error(error));
+    }
+
+    
+    // Function to hide loading
+    function hideLoading() {
+        document.getElementById('loading-container').style.display = 'none';
+    }
+
     function showContent() {
         const contentElement = document.getElementById("content");
         if (contentElement) {
@@ -117,5 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Load common and footer before proceeding
+    loadLoading();
     loadCommonAndFooter();
+    hideLoading();
 });
