@@ -21,6 +21,7 @@
     
     .row {
       display: flex;
+      font-family: 'Bungee Hairline', sans-serif;
       justify-content: center;
     }
     

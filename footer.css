@@ -1,57 +1,82 @@
 /* Footer Styling */
 
-/* Grid Styling */
-.container {
-    
-    text-align: center;
+.footer{
+    align-items: center;
 }
 
-.row {
-    display: flex; /* Make the row a flex container */
-    justify-content: center; /* Center the columns horizontally */
-    font-family: 'Bungee Hairline', sans-serif;
-    padding: 10px;
+.footer .row {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    margin-top: 25px;
+}
+  
+
+.footer .col {
+    max-width: unset; /* Allow natural width */
 }
 
-.col {
-    text-align: center;
-    flex: 1; /* Distribute columns evenly in a row */
-    margin-top: 20px; /* Adjust the value based on your preference */
+.footer .container {
+    width: 100%; /* Ensure it spans full width */
 }
+  
 
 /* Reset text-center styling for specific elements */
 .col.text-center {
-    text-align: center;
-    font-family: 'Bungee Hairline', sans-serif;
+  text-align: center;
+  font-family: 'Bungee Hairline', sans-serif;
 }
 
 /* Icon Styling */
-
 .icon-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 15px;
 }
 
-.icon-link {
-    text-align: center;
-    display: flex;
+.social-icon {
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.5rem !important;
+    color: white !important;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #007bff; /* Bootstrap primary blue */
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.social-icon i {
+    font-size: 1.5rem !important;
+}
+
+
+.icon-link {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .icon-link i {
-    font-size: 20px; /* Adjust the size as needed */
-    margin-right: 30px; /* Adjust the spacing between the icons */
+  font-size: 20px; /* Adjust the size as needed */
+  margin-right: 30px; /* Adjust the spacing between the icons */
 }
 
-/* Reset text-center styling for specific elements */
-.col.text-center {
-    text-align: center;
-    font-family: 'Bungee Hairline', sans-serif;
+.icon-link a {
+    display: block;
+    font-size: 20px;
 }
 
 
-
-
-  
 
