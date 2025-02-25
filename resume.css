@@ -15,7 +15,6 @@
   text-align: center; /* Horizontal center alignment */
   font-family: 'Bungee', sans-serif;
   text-decoration: underline;
-  padding-bottom: 10px;
   display: flex;
   flex-direction: column;
 }
@@ -23,7 +22,6 @@
 .subheader-small {
   text-align: center; /* Horizontal center alignment */
   font-family: 'Bungee Hairline', sans-serif;
-  padding-bottom: 10px;
   display: flex;
   flex-direction: column;
 }
@@ -51,7 +49,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 25px;
   width: 100%; /* Set the width to 100% */
 }
 
@@ -60,16 +58,15 @@
 }
 
 .ul {
+  display: flex;
   list-style: none;
-  margin: 0;
-  padding: 0;
   padding-bottom: 10px;
-  justify-content: left;
-  text-align: left;
+  justify-content: center;
+  text-align: center;
 }
 
 li {
-  display: block; /* Each list item on a new line */
+  display: flex; /* Each list item on a new line */
   margin-bottom: 10px; /* Adjust the margin between items as needed */
   text-align: center;
   font-size: larger;
