@@ -136,6 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Load common and footer before proceeding
+    /* TODO: FIX LOADING??? */
     loadLoading();
     loadCommonAndFooter();
     hideLoading();
