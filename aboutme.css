@@ -3,30 +3,68 @@
 /* Header Styling */
 
 .header {
-    text-align: center; /* Horizontal center alignment */
-    display: flex;
-    justify-content: center; /* Center horizontally in flex container */
-    align-items: center; /* Center vertically in flex container */
-    height: 25vh; /* Full viewport height */
-    background-color: #333; /* Background color */
-    color: #fff; /* Text color */
-    font-family: 'Bungee Shade', sans-serif;
+  text-align: center; /* Horizontal center alignment */
+  display: flex;
+  justify-content: center; /* Center horizontally in flex container */
+  align-items: center; /* Center vertically in flex container */
+  height: 25vh; /* Full viewport height */
+  background-color: #333; /* Background color */
+  color: #fff; /* Text color */
+  font-family: 'Bungee Shade', sans-serif;
   }
   
-  /* Grid Styling */
-  
-  .container.text-center {
-      text-align: center;
-    }
-    
-    .row {
-      display: flex;
-      font-family: 'Bungee Hairline', sans-serif;
-      justify-content: center;
-    }
-    
-    .col {
-      padding: 10px;
-      font-family: 'Bungee Hairline', sans-serif;
-    }
-    
+/* Grid Styling */
+
+.container.text-center {
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  justify-content: center; /* Center items horizontally */
+  align-items: flex-start; /* Align items to the top */
+}
+
+.row {
+  display: flex;
+  font-family: 'Bungee Hairline', sans-serif;
+  justify-content: center;
+}
+
+.col {
+  font-family: 'Bungee Hairline', sans-serif;
+}
+
+.col.text-center {
+  text-align: center;
+  font-family: 'Bungee Hairline', sans-serif;
+  padding: 20px;
+}
+
+.styled-paragraph {
+  display: flex;
+  text-align: justify; /* Justifies the text for better readability */
+  padding: 20px; /* Adds padding around the text */
+  font-size: 1.1rem; /* Slightly larger font size for better readability */
+  font-family: 'Bungee Hairline', sans-serif;
+  font-size: larger;
+  font-weight: 600;
+  max-width: 800px; /* Limits the width for better layout control */
+}
+
+
+/* Photo Styling */
+.rounded-image {
+  width: 30%; /* Makes the image responsive */
+  max-width: 200px; /* Optional: Sets the maximum width for the image */
+  border-radius: 1500px; /* Adjust this value to make the edges more or less rounded */
+  object-fit: cover; /* Ensures the image maintains its aspect ratio and covers the container */
+}
+
+.picture-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the content (like image and text) horizontally */
+  justify-content: center; /* Centers the content vertically if needed */
+  padding: 20px;
+  margin-bottom: 50px;
+}
+

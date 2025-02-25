@@ -12,22 +12,30 @@
 }
 
 .subheader {
-  text-align: left; /* Horizontal center alignment */
+  text-align: center; /* Horizontal center alignment */
   font-family: 'Bungee', sans-serif;
   text-decoration: underline;
   padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .subheader-small {
-  text-align: left; /* Horizontal center alignment */
+  text-align: center; /* Horizontal center alignment */
   font-family: 'Bungee Hairline', sans-serif;
   padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Grid Styling */
 
 .container.text-center {
-    text-align: left;
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  justify-content: center; /* Center items horizontally */
+  align-items: flex-start; /* Align items to the top */
 }
   
 .row {
@@ -38,20 +46,20 @@
   margin: 0px;
 }
 
-.P {
-  display: block; /* Each list item on a new line */
-  justify-content: left;
-  margin-bottom: 10px; /* Adjust the margin between items as needed */
-  text-align: left;
-  margin-right: 10px; /* Adjust the margin between items as needed */
-  margin: 0px;
+.section-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  width: 100%; /* Set the width to 100% */
 }
-  
+
 .col {
   font-family: 'Bungee Hairline', sans-serif;
 }
 
-ul {
+.ul {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -63,15 +71,58 @@ ul {
 li {
   display: block; /* Each list item on a new line */
   margin-bottom: 10px; /* Adjust the margin between items as needed */
-  text-align: left;
-  margin-right: 180px; /* Adjust the margin between items as needed */
+  text-align: center;
+  font-size: larger;
+  font-weight: 600;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  font-family: 'Bungee Hairline', sans-serif;
 }
 
-li.custom-margin {
-  display: block; /* Each list item on a new line */
-  margin-bottom: 10px; /* Adjust the margin between items as needed */
-  text-align: left;
-  margin-right: 20px; /* Adjust the margin between items as needed */
+/* Divider Styling */
+.divider {
+  border: none; 
+  height: 1px; /* Adjust thickness */
+  background-color: #ccc; /* Line color */
+  width: 100%; /* Adjust width */
+  margin: 20px auto; /* Center horizontally */
 }
+
+/* Scale Styling */
+
+.skill {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.circle-label {
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+  min-width: 250px; /* Ensures labels are the same width */
+}
+
+.circle-container {
+  display: flex;
+  justify-content: center;
+}
+
+.circle-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px; /* Set a fixed width to keep circles aligned */
+  height: 40px; /* Bounding box height */
+  text-align: center;
+}
+
+.circle-box i {
+  font-size: 1.5rem;
+  margin: 0 5px;
+}
+
+
+
 
 
