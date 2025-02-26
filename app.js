@@ -1,60 +1,37 @@
 document.addEventListener("DOMContentLoaded", function () {
     function loadCommonAndFooter() {
         let commonLoaded = fetch("https://sazarrama.github.io/common.html")
-        .then(response => response.text())
-        .then(commonData => {
-            const commonContainer = document.createElement("div");
-            commonContainer.innerHTML = commonData;
-            document.body.insertBefore(commonContainer, document.body.firstChild);
-            return document.getElementById("footer");  // Ensure footer exists
-        })
-        .then(footerElement => {
-            if (footerElement) {
-                return fetch("https://sazarrama.github.io/footer.html")
-                    .then(response => response.text())
-                    .then(footerData => {
-                        footerElement.innerHTML = footerData;
-                    });
-            } else {
-                throw new Error("Footer element not found.");
-            }
-        })
-        .catch(error => console.error("Error loading components:", error));
-    
+            .then(response => response.text())
+            .then(commonData => {
+                const commonContainer = document.createElement("div");
+                commonContainer.innerHTML = commonData;
+                document.body.insertBefore(commonContainer, document.body.firstChild);
+            })
+            .catch(error => console.error("Error loading common.html:", error));
+
+        let footerLoaded = fetch("https://sazarrama.github.io/footer.html")
+            .then(response => response.text())
+            .then(footerData => {
+                const footerElement = document.getElementById("footer");
+                if (footerElement) {
+                    footerElement.innerHTML = footerData;
+                } else {
+                    console.error("Footer element not found.");
+                }
+            })
+            .catch(error => console.error("Error loading footer.html:", error));
 
         // Wait for both fetches to complete before proceeding
         Promise.all([commonLoaded, footerLoaded])
-        .then(() => {
-            console.log("✅ Common and Footer loaded");
-            showContent();
-            loadImages();
-            attachEventListeners();
-        })
-        .catch(error => {
-            console.error("❌ Error loading components:", error);
-        });
-    
-    }
-
-    /* TODO: FIX LOADING */
-
-    // Function to load loading content
-    function loadLoading() {
-        fetch("https://sazarrama.github.io/loading.html")
-            .then(response => response.text())
-            .then(loadingData => {
-                const loadingContainer = document.getElementById('loading');
-                if (loadingContainer) {
-                    loadingContainer.innerHTML = loadingData;
-                }
+            .then(() => {
+                console.log("✅ Common and Footer loaded");
+                showContent();
+                loadImages();
+                attachEventListeners();
             })
-            .catch(error => console.error(error));
-    }
-
-    
-    // Function to hide loading
-    function hideLoading() {
-        document.getElementById('loading-container').style.display = 'none';
+            .catch(error => {
+                console.error("❌ Error loading components:", error);
+            });
     }
 
     function showContent() {
@@ -81,6 +58,30 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.log("Icon clicked:", event.target);
             });
         });
+    }
+
+    // Load common and footer before proceeding
+    loadCommonAndFooter();
+
+    /* TODO: FIX LOADING */
+
+    // Function to load loading content
+    function loadLoading() {
+        fetch("https://sazarrama.github.io/loading.html")
+            .then(response => response.text())
+            .then(loadingData => {
+                const loadingContainer = document.getElementById('loading');
+                if (loadingContainer) {
+                    loadingContainer.innerHTML = loadingData;
+                }
+            })
+            .catch(error => console.error(error));
+    }
+
+    
+    // Function to hide loading
+    function hideLoading() {
+        document.getElementById('loading-container').style.display = 'none';
     }
 
     function openCarousel(imageIndex) {
@@ -142,7 +143,4 @@ document.addEventListener("DOMContentLoaded", function () {
             thumbnailsContainer.appendChild(thumbnailDiv);
         });
     }
-
-    // Load common and footer before proceeding
-    loadCommonAndFooter();
 });
