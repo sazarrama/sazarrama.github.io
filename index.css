@@ -55,16 +55,7 @@
   justify-content: center; /* Centers the content vertically if needed */
   padding: 10px;
   margin-bottom: 50px;
-}
-
-.rounded-image-large {
-  width: 50%; /* Makes the image responsive */
-  max-width: 100px; /* Optional: Sets the maximum width for the image */
-  max-height: 600px;
-  height: auto;
-  border-radius: 300px; /* Adjust this value to make the edges more or less rounded */
-  object-fit: cover; /* Ensures the image maintains its aspect ratio and covers the container */
-  margin-top: 20px; /* Moves the image down */
+  margin-top: 50px;
 }
 
 /* Divider Container */
@@ -84,50 +75,11 @@
   margin: 0 auto; /* Center horizontally */
 }
 
-/* Icon Styling */
-.icon-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px; /* Set the size of the circle */
-  height: 50px; /* Set the size of the circle */
-  background-color: white; /* White background for the circle */
-  border-radius: 50%; /* Make the container circular */
-  margin-bottom: 10px; /* Add space between icon and label */
-}
-
-/* Change icon color to pink */
-/* Container for icons to create the white circle */
-.icon-container {
-  display: flex;
-  align-items: center; /* Vertically center the icon */
-  justify-content: center; /* Horizontally center the icon */
-  width: 60px; /* Set the size of the circle (adjust as needed) */
-  height: 60px; /* Set the size of the circle (adjust as needed) */
-  background-color: white; /* White background for the circle */
-  border-radius: 50%; /* Make the container circular */
-  margin-bottom: 10px; /* Add space between icon and label */
-}
-
-/* Scale and center the icon inside the circle */
-.icon-container i {
-  color: #E56399; /* Pink color for the icon */
-  font-size: 2rem; /* Adjust icon size */
-  object-fit: contain; /* Ensures the icon maintains its aspect ratio */
-}
-
-/* Optional: Hover effect for the icon container */
-.icon-container:hover i {
-  color: #d81b60; /* Darker pink when hovered */
-}
-
-/* Optional: Adjust the hover text color for the labels */
-.hover-me {
-  text-decoration: underline; /* Remove default underline */
-  color: #000; /* Default text color */
-}
-
-.hover-me:hover {
-  color: #e91e63; /* Change text color to pink on hover */
-  text-decoration: underline; /* Underline on hover */
+/* Photo Styling */
+.rounded-image {
+  width: 70%; /* Makes the image responsive */
+  max-width: 200px; /* Optional: Sets the maximum width for the image */
+  height: auto; /* Automatically adjusts height based on width */
+  border-radius: 50%; /* Perfectly rounds the image */
+  object-fit: cover; /* Ensures the image maintains its aspect ratio and covers the container */
 }

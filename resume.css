@@ -99,9 +99,17 @@ li {
   align-items: center;
 }
 
+.section-box-skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Set the width to 100% */
+}
+
 .circle-label {
   display: flex;
-  text-align: justify; /* Justifies the text for better readability */
+  justify-content: space-between; /* Justifies the text for better readability */
   padding: 20px; /* Adds padding around the text */
   font-size: 1.1rem; /* Slightly larger font size for better readability */
   font-family: 'Bungee Hairline', sans-serif;

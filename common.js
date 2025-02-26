@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 } else {
                     console.error("Footer element not found.");
                 }
+                attachFooterEventListeners();
             })
             .catch(error => console.error("Error loading footer.html:", error));
     }

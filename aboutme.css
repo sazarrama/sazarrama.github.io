@@ -65,10 +65,12 @@
 .rounded-image {
   width: 70%; /* Makes the image responsive */
   max-width: 200px; /* Optional: Sets the maximum width for the image */
-  border-radius: 1500px; /* Adjust this value to make the edges more or less rounded */
+  height: auto; /* Automatically adjusts height based on width */
+  border-radius: 50%; /* Perfectly rounds the image */
   object-fit: cover; /* Ensures the image maintains its aspect ratio and covers the container */
 }
 
+/* Container Styling for Centering */
 .picture-container {
   display: flex;
   flex-direction: column;
