@@ -13,20 +13,33 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function loadFooter() {
-        return fetch("https://sazarrama.github.io/footer.html")
+        fetch("https://sazarrama.github.io/footer.html")
             .then(response => response.text())
             .then(footerData => {
                 const footerElement = document.getElementById("footer");
                 if (footerElement) {
                     footerElement.innerHTML = footerData;
-                    console.log("✅ Footer loaded");
-                    attachFooterEventListeners();
+    
+                    // Now check if the current page is not 'index.html' and toggle the visibility of the nav
+                    const currentPage = window.location.pathname.split("/").pop();
+                    const footerNav = footerElement.querySelector("#footer-nav");
+    
+                    // Ensure footerNav exists and is accessible
+                    if (footerNav) {
+                        if (currentPage !== "index.html") {
+                            footerNav.style.display = "block"; // Show the footer nav if not on index
+                        } else {
+                            footerNav.style.display = "none"; // Hide the footer nav on index.html
+                        }
+                    } else {
+                        console.error("Footer nav not found.");
+                    }
                 } else {
-                    console.error("❌ Footer element not found.");
+                    console.error("Footer element not found.");
                 }
             })
-            .catch(error => console.error("❌ Error loading footer.html:", error));
-    }
+            .catch(error => console.error("Error loading footer.html:", error));
+    }       
 
     function attachCommonEventListeners() {
         const navbarLinks = document.querySelectorAll(".nav-link");
@@ -63,6 +76,22 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error("❌ Content element not found.");
         }
     }
+    
+    // Load common and footer, then images and portfolio
+    async function initializePage() {
+        try {
+            await Promise.all([loadCommon(), loadFooter()]);
+            console.log("✅ Common and Footer loaded");
+    
+            showContent(); // Show content after common/footer are loaded
+            await loadImagesAndPortfolio(); // Load images & carousel after content is visible
+        } catch (error) {
+            console.error("❌ Error initializing page:", error);
+        }
+    }
+    
+    // Run when page loads
+    document.addEventListener("DOMContentLoaded", initializePage);    
 
     // Load common and footer, then show content
     Promise.all([loadCommon(), loadFooter()])
