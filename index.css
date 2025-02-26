@@ -33,7 +33,6 @@
   align-items: center;
   font-family: 'Bungee Hairline', sans-serif;
   padding: 20px;
-  gap: 40px; /* Adjust this value to set the space between contained icons */
 }
 
 .col {

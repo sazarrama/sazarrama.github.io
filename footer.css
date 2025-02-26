@@ -17,6 +17,7 @@
     text-align: center;
     box-sizing: border-box;
     padding: 20px;
+    gap: 40px;
 }
 
 .footer .col {
