@@ -145,12 +145,11 @@
 }
 
 .modal-body {
-  background-color: rgba(0, 0, 0, 0.2); /* Adjusted transparency */
+  background-color: white; /* Adjusted transparency */
 }
 
 .modal-header {
-  border: none;
-  background-color: rgba(0, 0, 0, 0.2); /* Adjusted transparency */
+  background-color: white; /* Adjusted transparency */
   padding: 20px;
 }
 

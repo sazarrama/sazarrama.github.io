@@ -59,17 +59,14 @@
   }
   
   /* Additional Styling for Links (Icon Links) */
-.icon-link {
+  .icon-link {
     width: 160px; /* Set a fixed width for icon link containers */
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px; /* Space between icon and label */
     margin-bottom: 30px;
-    flex-shrink: 0;
-    align-self: center; /* Center vertically */
-}
+  }
   
   /* Icon inside Icon Link */
   .icon-link i {

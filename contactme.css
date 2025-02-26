@@ -31,6 +31,10 @@
   margin: auto; /* Center the form horizontally */
 }
 
+.text-center {
+  padding: 20px;
+}
+
 .form-container .text-danger {
   color: white !important;
 }
@@ -42,5 +46,16 @@
   background-color: #ccc; /* Line color */
   width: 80%; /* Adjust width */
   margin: 20px auto; /* Center horizontally */
+}
+
+/* Icon Container */
+
+.icon-container-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the icon horizontally */
+  width: 60px; /* Set the size of the icon */
+  height: 60px;
+  margin: 20px auto; /* Center horizontally and add space between icon and label */
 }
     
