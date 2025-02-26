@@ -7,8 +7,10 @@
   display: flex;
   justify-content: center; /* Center horizontally in flex container */
   align-items: center; /* Center vertically in flex container */
-  height: 25vh; /* Full viewport height */
+  height: vh25; /* Full viewport height */
   font-family: 'Bungee Shade', sans-serif;
+  padding: 20px;
+  letter-spacing: 2px; /* Increase letter spacing */
 }
 
 .subheader {
@@ -24,6 +26,9 @@
   font-family: 'Bungee Hairline', sans-serif;
   display: flex;
   flex-direction: column;
+  color: white;
+  padding: 10px;
+  font-size: 12pt;
 }
 
 /* Grid Styling */
@@ -87,6 +92,7 @@ li {
 /* Skills Styling */
 
 .skill {
+  margin-top: 20px;
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
@@ -94,10 +100,15 @@ li {
 }
 
 .circle-label {
-  font-size: 1.1rem;
-  font-weight: bold;
-  text-align: center;
-  min-width: 250px; /* Ensures labels are the same width */
+  display: flex;
+  text-align: justify; /* Justifies the text for better readability */
+  padding: 20px; /* Adds padding around the text */
+  font-size: 1.1rem; /* Slightly larger font size for better readability */
+  font-family: 'Bungee Hairline', sans-serif;
+  font-size: larger;
+  font-weight: 600;
+  max-width: 800px; /* Limits the width for better layout control */
+  padding: 20px;
 }
 
 .circle-container {

@@ -9,7 +9,18 @@
   align-items: center; /* Center vertically in flex container */
   height: vh25; /* Full viewport height */
   font-family: 'Bungee Shade', sans-serif;
-  padding: 50px;
+  padding: 20px;
+  letter-spacing: 2px; /* Increase letter spacing */
+}
+
+.subheader-small {
+  text-align: center; /* Horizontal center alignment */
+  font-family: 'Bungee Hairline', sans-serif;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding: 10px;
+  font-size: 12pt;
 }
 
 /* Grid Styling */
@@ -54,4 +65,21 @@
   border-radius: 300px; /* Adjust this value to make the edges more or less rounded */
   object-fit: cover; /* Ensures the image maintains its aspect ratio and covers the container */
   margin-top: 20px; /* Moves the image down */
+}
+
+/* Divider Container */
+.divider-container {
+  width: 100vw; /* Full width of the viewport */
+  background-color: #E56399;
+  padding: 10px 0; /* Add padding to create space around the white divider */
+  text-align: center;
+}
+
+/* Divider Styling */
+.divider {
+  border: none;
+  height: 2px; /* Adjust thickness */
+  background-color: white; /* Keep the divider white */
+  width: 80%; /* Adjust width */
+  margin: 0 auto; /* Center horizontally */
 }

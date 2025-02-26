@@ -7,11 +7,21 @@
   display: flex;
   justify-content: center; /* Center horizontally in flex container */
   align-items: center; /* Center vertically in flex container */
-  height: 25vh; /* Full viewport height */
-  background-color: #333; /* Background color */
-  color: #fff; /* Text color */
+  height: vh25; /* Full viewport height */
   font-family: 'Bungee Shade', sans-serif;
-  }
+  padding: 20px;
+  letter-spacing: 2px; /* Increase letter spacing */
+}
+
+.subheader-small {
+  text-align: center; /* Horizontal center alignment */
+  font-family: 'Bungee Hairline', sans-serif;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding: 10px;
+  font-size: 12pt;
+}
   
 /* Grid Styling */
 
@@ -48,6 +58,7 @@
   font-size: larger;
   font-weight: 600;
   max-width: 800px; /* Limits the width for better layout control */
+  padding: 20px;
 }
 
 
@@ -66,5 +77,15 @@
   justify-content: center; /* Centers the content vertically if needed */
   padding: 20px;
   margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+/* Divider Styling */
+.divider {
+  border: none; 
+  height: 1px; /* Adjust thickness */
+  background-color: #ccc; /* Line color */
+  width: 80%; /* Adjust width */
+  margin: 20px auto; /* Center horizontally */
 }
 

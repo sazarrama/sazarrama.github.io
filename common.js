@@ -19,28 +19,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 const footerElement = document.getElementById("footer");
                 if (footerElement) {
                     footerElement.innerHTML = footerData;
-    
-                    // Now check if the current page is not 'index.html' and toggle the visibility of the nav
-                    const currentPage = window.location.pathname.split("/").pop();
-                    const footerNav = footerElement.querySelector("#footer-nav");
-    
-                    // Ensure footerNav exists and is accessible
-                    if (footerNav) {
-                        if (currentPage !== "index.html") {
-                            footerNav.style.display = "block"; // Show the footer nav if not on index
-                        } else {
-                            footerNav.style.display = "none"; // Hide the footer nav on index.html
-                        }
-                    } else {
-                        console.error("Footer nav not found.");
-                    }
                 } else {
                     console.error("Footer element not found.");
                 }
             })
             .catch(error => console.error("Error loading footer.html:", error));
-    }       
-
+    }
+       
     function attachCommonEventListeners() {
         const navbarLinks = document.querySelectorAll(".nav-link");
         navbarLinks.forEach(link => {

@@ -2,13 +2,25 @@
 
 /* Header Styling */
 .header {
-  text-align: center;
+  text-align: center; /* Horizontal center alignment */
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 25vh;
-  background-color: #333;
+  justify-content: center; /* Center horizontally in flex container */
+  align-items: center; /* Center vertically in flex container */
+  height: vh25; /* Full viewport height */
   font-family: 'Bungee Shade', sans-serif;
+  padding: 20px;
+  letter-spacing: 2px; /* Increase letter spacing */
+}
+
+.subheader-small {
+  text-align: center; /* Horizontal center alignment */
+  font-family: 'Bungee Hairline', sans-serif;
+  display: flex;
+  flex-direction: column;
+  color: white; /* Ensure text color is white */
+  background-color: #E56399;
+  padding: 10px;
+  font-size: 12pt;
 }
 
 .row {
@@ -17,6 +29,23 @@
   padding: 0px;
   margin-right: 10px;
   margin: 0px;
+}
+
+/* Divider Container */
+.divider-container {
+  width: 100vw; /* Full width of the viewport */
+  background-color: #E56399;
+  padding: 10px 0; /* Add padding to create space around the white divider */
+  text-align: center;
+}
+
+/* Divider Styling */
+.divider {
+  border: none;
+  height: 2px; /* Adjust thickness */
+  background-color: white; /* Keep the divider white */
+  width: 80%; /* Adjust width */
+  margin: 0 auto; /* Center horizontally */
 }
 
 /* Grid Styling */
@@ -35,13 +64,13 @@
 }
 
 .grid-container {
+  text-align: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  max-width: 90%; /* Adjusted for responsiveness */
-  margin: 20px auto; /* Center the grid horizontally and provide top/bottom margin */
-  background-color: transparent; /* Make the background transparent */
+  background-color: #E56399;
+  padding: 30px;
 }
 
 .thumbnail {
@@ -65,6 +94,7 @@
 }
 
 /* Carousel Styling */
+
 .imageCarousel {
   position: fixed;
   z-index: 1000;
@@ -93,6 +123,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1050; /* Ensure the modal is on top of other content */
+  background-color: rgba(0, 0, 0, 0.8); /* Optional, to dim the background */
+  position: relative; /* Ensure positioning context for the controls */
 }
 
 /* Optional: Add overlay to make the modal stand out */
@@ -102,37 +135,66 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Adjust the transparency as needed */
-  z-index: 1050; /* Ensure the overlay is above the modal */
+  background-color: transparent; /* Adjust the transparency as needed */
+  z-index: 1040; /* Ensure the backdrop is behind the modal */
 }
 
-/* Optional: Center the modal header and body content */
-.modal-content {
-  text-align: center;
+.modal-dialog{
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-body {
+  background-color: rgba(0, 0, 0, 0.2); /* Adjusted transparency */
+}
+
+.modal-header {
   border: none;
+  background-color: rgba(0, 0, 0, 0.2); /* Adjusted transparency */
+  padding: 20px;
 }
 
-/* Optional: Adjust the modal size if needed */
-.modal-lg {
-  max-width: 80%; /* You can adjust the percentage as needed */
+.modalLabel {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: transparent;
 }
 
+.modal-title {
+  color: transparent;
+}
+
+/* Close button styling */
 .btn-close {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 10px;
+  right: 10px;
+  padding: 0.5rem; /* Make the button smaller */
+  background-color: transparent;
+  color: white; /* Set the button text (x) to white */
+  border: none;
+  outline: none;
+  cursor: pointer;
+  z-index: 1052; /* Ensure the close button is above other content */
+}
+
+/* Carousel control buttons */
+.carousel-control-prev, .carousel-control-next {
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  width: auto;
   padding: 1rem;
   background-color: transparent;
   border: none;
   outline: none;
   cursor: pointer;
-  margin-top: -5px; /* Adjust the value based on your preference */
+  color: white; /* Ensure the controls are visible */
+  z-index: 1051; /* Ensure the controls are above the carousel content */
 }
 
 #imageModal .modal-header {
   border: none;
-}
-
-.modal-body {
-  border: none;
+  color: white; /* Ensure header text is white */
+  padding: 0;
+  margin: 0;
 }

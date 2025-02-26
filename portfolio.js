@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
         imageModal.show();
 
         var modalImageCarousel = new bootstrap.Carousel(document.getElementById("modalImageCarousel"), {
-            interval: false
+            interval: false // Ensure the carousel does not auto-play
         });
 
         document.getElementById("modalImageCarouselPrev").addEventListener("click", function () {

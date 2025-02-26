@@ -3,30 +3,44 @@
 /* Header Styling */
 
 .header {
-    text-align: center; /* Horizontal center alignment */
-    display: flex;
-    justify-content: center; /* Center horizontally in flex container */
-    align-items: center; /* Center vertically in flex container */
-    height: 25vh; /* Full viewport height */
-    background-color: #333; /* Background color */
-    color: #fff; /* Text color */
-    font-family: 'Bungee Shade', sans-serif;
-  }
-  
-  /* Grid Styling */
-  
-  .container.text-center {
-      text-align: center;
-    }
-    
-    .row {
-      display: flex;
-      font-family: 'Bungee Hairline', sans-serif;
-      justify-content: center;
-    }
-    
-    .col {
-      padding: 10px;
-      font-family: 'Bungee Hairline', sans-serif;
-    }
+  text-align: center; /* Horizontal center alignment */
+  display: flex;
+  justify-content: center; /* Center horizontally in flex container */
+  align-items: center; /* Center vertically in flex container */
+  height: vh25; /* Full viewport height */
+  font-family: 'Bungee Shade', sans-serif;
+  padding: 20px;
+}
+
+.subheader-small {
+  text-align: center; /* Horizontal center alignment */
+  font-family: 'Bungee Hairline', sans-serif;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding: 10px;
+  font-size: 12pt;
+}
+
+/* Form Styling */
+.form-container {
+  background-color: rgba(255, 255, 255, 0);
+  padding: 5px; /* Add padding inside the container */
+  border-radius: 10px; /* Rounded corners */
+  max-width: 80%; /* Limit width for better layout */
+  margin: auto; /* Center the form horizontally */
+}
+
+.form-container .text-danger {
+  color: white !important;
+}
+
+/* Divider Styling */
+.divider {
+  border: none; 
+  height: 1px; /* Adjust thickness */
+  background-color: #ccc; /* Line color */
+  width: 80%; /* Adjust width */
+  margin: 20px auto; /* Center horizontally */
+}
     
