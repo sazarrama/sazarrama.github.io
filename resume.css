@@ -113,10 +113,10 @@ li {
   padding: 20px; /* Adds padding around the text */
   font-size: 1.1rem; /* Slightly larger font size for better readability */
   font-family: 'Bungee Hairline', sans-serif;
-  font-size: larger;
+  font-size: medium;
   font-weight: 600;
   max-width: 800px; /* Limits the width for better layout control */
-  padding: 20px;
+  padding: 10px;
 }
 
 .circle-container {

@@ -39,13 +39,21 @@
   color: white !important;
 }
 
+/* Divider Container */
+.divider-container {
+  width: 100vw; /* Full width of the viewport */
+  background-color: #E56399;
+  padding: 10px 0; /* Add padding to create space around the white divider */
+  text-align: center;
+}
+
 /* Divider Styling */
 .divider {
-  border: none; 
-  height: 1px; /* Adjust thickness */
-  background-color: #ccc; /* Line color */
+  border: none;
+  height: 2px; /* Adjust thickness */
+  background-color: white; /* Keep the divider white */
   width: 80%; /* Adjust width */
-  margin: 20px auto; /* Center horizontally */
+  margin: 0 auto; /* Center horizontally */
 }
 
 /* Icon Container */
