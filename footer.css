@@ -40,58 +40,75 @@
 /* Icon Styling */
 .icon-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.social-icon {
+    align-items: center; /* Vertically center the icon */
+    justify-content: center; /* Horizontally center the icon */
+    width: 60px; /* Set the size of the circle (adjust as needed) */
+    height: 60px; /* Set the size of the circle (adjust as needed) */
+    background-color: white; /* White background for the circle */
+    border-radius: 50%; /* Make the container circular */
+    margin-bottom: 10px; /* Add space between icon and label */
+  }
+  
+  /* Scale and center the icon inside the circle */
+  .icon-container i {
+    color: #E56399; /* Pink color for the icon */
+    font-size: 2rem; /* Adjust icon size */
+    object-fit: contain; /* Ensures the icon maintains its aspect ratio */
+  }
+  
+  /* Optional: Hover effect for the icon container */
+  .icon-container:hover i {
+    color: #d81b60; /* Darker pink when hovered */
+  }
+  
+  /* Social Icon Styling for Footer */
+  .social-icon {
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
     font-size: 1.5rem !important;
     color: white !important;
-    padding: 10px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    width: 60px; /* Set the size of the circle for social icons */
+    height: 60px; /* Set the size of the circle */
+    background-color: white; /* White background for the circle */
+    border-radius: 50%; /* Make the container circular */
     transition: background-color 0.3s ease;
-}
-
-.social-icon:hover {
+  }
+  
+  /* Hover effect for social icons */
+  .social-icon:hover {
     color: #007bff; /* Bootstrap primary blue */
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-.social-icon i {
-    font-size: 1.5rem !important;
-    align-items: center;
-    justify-content: center;
-}
-
-.icon-link {
-    width: 160px;  /* Set consistent width */
-    height: 50px;  /* Set consistent height */
+    background-color: rgba(255, 255, 255, 0.1); /* Lighten the background on hover */
+  }
+  
+  /* Scale and center the icon inside the circle */
+  .social-icon i {
+    color: #E56399; /* Pink color for the icon */
+    font-size: 2rem; /* Adjust icon size */
+    object-fit: contain; /* Ensures the icon maintains its aspect ratio */
+  }
+  
+  /* Adjust for consistent layout in the icon container (if needed) */
+  .icon-link {
     display: flex;
+    gap: 10px; /* Add gap between icons */
     align-items: center;
     justify-content: center;
-    flex-wrap: nowrap;
     margin-bottom: 30px;
-    gap: 10px; /* Add gap between icons */
-}
-
-.icon-link i {
-    font-size: 1.5rem;
-    margin-right: 0; /* Remove margin-right */
-}
-
-.icon-link a {
-    display: flex; /* Change to flex */
+  }
+  
+  .icon-link i {
+    font-size: 2rem; /* Icon size */
+    color: #E56399; /* Pink color */
+  }
+  
+  .icon-link a {
+    display: flex;
     align-items: center; /* Center vertically */
     justify-content: center; /* Center horizontally */
     font-size: 20px;
-}
+  }  
 
 
 

@@ -51,20 +51,19 @@
 
 .styled-paragraph {
   display: flex;
-  text-align: justify; /* Justifies the text for better readability */
   padding: 20px; /* Adds padding around the text */
   font-size: 1.1rem; /* Slightly larger font size for better readability */
   font-family: 'Bungee Hairline', sans-serif;
-  font-size: larger;
   font-weight: 600;
   max-width: 800px; /* Limits the width for better layout control */
   padding: 20px;
+  justify-content: space-between; /* Ensures text is spaced evenly when flexed */
 }
 
 
 /* Photo Styling */
 .rounded-image {
-  width: 30%; /* Makes the image responsive */
+  width: 70%; /* Makes the image responsive */
   max-width: 200px; /* Optional: Sets the maximum width for the image */
   border-radius: 1500px; /* Adjust this value to make the edges more or less rounded */
   object-fit: cover; /* Ensures the image maintains its aspect ratio and covers the container */
