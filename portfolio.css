@@ -41,6 +41,7 @@
   align-items: center;
   max-width: 90%; /* Adjusted for responsiveness */
   margin: 20px auto; /* Center the grid horizontally and provide top/bottom margin */
+  background-color: transparent; /* Make the background transparent */
 }
 
 .thumbnail {
