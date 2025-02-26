@@ -1,33 +1,39 @@
 document.addEventListener("DOMContentLoaded", function () {
     function loadCommonAndFooter() {
         let commonLoaded = fetch("https://sazarrama.github.io/common.html")
-            .then(response => response.text())
-            .then(commonData => {
-                const commonContainer = document.createElement("div");
-                commonContainer.innerHTML = commonData;
-                document.body.insertBefore(commonContainer, document.body.firstChild);
-            })
-            .catch(error => console.error("Error loading common.html:", error));
-
-        let footerLoaded = fetch("https://sazarrama.github.io/footer.html")
-            .then(response => response.text())
-            .then(footerData => {
-                const footerElement = document.getElementById("footer");
-                if (footerElement) {
-                    footerElement.innerHTML = footerData;
-                } else {
-                    console.error("Footer element not found.");
-                }
-            })
-            .catch(error => console.error("Error loading footer:", error));
+        .then(response => response.text())
+        .then(commonData => {
+            const commonContainer = document.createElement("div");
+            commonContainer.innerHTML = commonData;
+            document.body.insertBefore(commonContainer, document.body.firstChild);
+            return document.getElementById("footer");  // Ensure footer exists
+        })
+        .then(footerElement => {
+            if (footerElement) {
+                return fetch("https://sazarrama.github.io/footer.html")
+                    .then(response => response.text())
+                    .then(footerData => {
+                        footerElement.innerHTML = footerData;
+                    });
+            } else {
+                throw new Error("Footer element not found.");
+            }
+        })
+        .catch(error => console.error("Error loading components:", error));
+    
 
         // Wait for both fetches to complete before proceeding
-        Promise.all([commonLoaded, footerLoaded]).then(() => {
+        Promise.all([commonLoaded, footerLoaded])
+        .then(() => {
             console.log("✅ Common and Footer loaded");
             showContent();
             loadImages();
             attachEventListeners();
+        })
+        .catch(error => {
+            console.error("❌ Error loading components:", error);
         });
+    
     }
 
     /* TODO: FIX LOADING */
