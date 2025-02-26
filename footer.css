@@ -40,6 +40,7 @@
 .footer .container {
     width: 100%; /* Ensure it spans full width */
     box-sizing: border-box;
+    flex-wrap: wrap;
 }
 
 /* Reset text-center styling for specific elements */
@@ -48,6 +49,7 @@
     font-family: 'Bungee Hairline', sans-serif;
     padding: 10px;
 }
+  
 
 
 

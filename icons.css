@@ -7,14 +7,14 @@
     justify-content: space-evenly;
     width: 60px; /* Set the size of the circle */
     height: 60px;
-    background-color: white; /* White background for the circle */
+    background-color: transparent; /* White background for the circle */
     border-radius: 50%; /* Make the container circular */
     margin-bottom: 20px; /* Add space between icon and label */
   }
   
   /* Icon Styling */
   .icon-container i {
-    color: #E56399; /* Pink color for the icon */
+    color: white; /* Pink color for the icon */
     font-size: 2rem; /* Adjust icon size */
     object-fit: contain; /* Ensures the icon maintains its aspect ratio */
     transition: color 0.3s ease; /* Smooth color change effect */

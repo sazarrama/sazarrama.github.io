@@ -22,6 +22,16 @@
   font-size: 12pt;
 }
 
+.subheader-large {
+  text-align: center; /* Horizontal center alignment */
+  font-family: 'Bungee Hairline', sans-serif;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding: 25px;
+  font-size: 12pt;
+}
+
 /* Form Styling */
 .form-container {
   background-color: rgba(255, 255, 255, 0);
@@ -65,5 +75,6 @@
   width: 60px; /* Set the size of the icon */
   height: 60px;
   margin: 20px auto; /* Center horizontally and add space between icon and label */
+  gap: 20px;
 }
     
