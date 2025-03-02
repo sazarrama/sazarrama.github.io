@@ -23,33 +23,13 @@
     color: var(--text-color); /* Sets the text colour */
 }
 
-.hover-me {
-    color: var(--default-text-color); /* Use the default color variable */
-    transition: color 0.3s; /* Add a smooth transition for a gradual color change */
-}
-
-.hover-me:hover {
-    color: var(--hover-text-color); /* Use the hover color variable on hover */
-}
-
 .container {
     color: var(--text-color); /* Sets the text colour */
 }
 
 /* Icons */
 
-i.fab.fa-instagram {
-    color: var(--text-color); /* Change this to your desired color */
-}
-  
-i.fab.fa-linkedin-in {
-    color: var(--text-color);
-}
 
-i.fa-regular.fa-envelope {
-    color: var(--text-color);
-}
-  
 /* Spinner Colour */
 
 .spinner {

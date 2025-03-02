@@ -13,28 +13,59 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function loadFooter() {
-        fetch("https://sazarrama.github.io/footer.html")
+        const cacheBuster = new Date().getTime();
+        fetch(`https://sazarrama.github.io/footer.html?nocache=${cacheBuster}`)
             .then(response => response.text())
             .then(footerData => {
-                const footerElement = document.getElementById("footer");
+                let footerElement = document.getElementById("footer");
+
                 if (footerElement) {
-                    footerElement.innerHTML = footerData;
+                    footerElement.innerHTML = footerData; // ✅ Replace content
+                    setActiveNavLink(); // Set active class after footer is loaded
                 } else {
-                    console.error("Footer element not found.");
+                    console.error("❌ Footer element not found in the HTML.");
                 }
+
                 attachFooterEventListeners();
             })
-            .catch(error => console.error("Error loading footer.html:", error));
+            .catch(error => console.error("❌ Error loading footer.html:", error));
     }
+    
+    function setActiveNavLink() {
+        // Get the current page URL
+        let currentPage = window.location.pathname.split("/").pop(); // Get current page filename
+        if (!currentPage) currentPage = "index.html"; // Default to index.html if empty
+    
+        // Find all .nav-link elements and compare href with current page
+        const navbarLinks = document.querySelectorAll(".nav-link");
+        navbarLinks.forEach(link => {
+            if (link.getAttribute("href") === currentPage) {
+                link.classList.add("active"); // Add active class
+            } else {
+                link.classList.remove("active"); // Remove active class from other links
+            }
+        });
+    }          
        
     function attachCommonEventListeners() {
         const navbarLinks = document.querySelectorAll(".nav-link");
+    
+        // Highlight the active link based on the current page
+        let currentPage = window.location.pathname.split("/").pop(); // Get current page filename
+        if (!currentPage) currentPage = "index.html"; // Default to index.html if empty
+    
         navbarLinks.forEach(link => {
+            if (link.getAttribute("href") === currentPage) {
+                link.classList.add("active");
+            } else {
+                link.classList.remove("active");
+            }
+    
             link.addEventListener("click", function (event) {
                 console.log("Navbar link clicked:", event.target.textContent);
             });
         });
-
+    
         const toggleMenu = document.getElementById("menu-toggle");
         if (toggleMenu) {
             toggleMenu.addEventListener("click", function () {
@@ -42,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.log("Menu toggled");
             });
         }
-    }
+    }    
 
     function attachFooterEventListeners() {
         const footerIcons = document.querySelectorAll(".social-icon");
