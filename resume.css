@@ -9,19 +9,24 @@
   align-items: center; /* Center vertically in flex container */
   height: vh25; /* Full viewport height */
   font-family: 'Bungee Shade', sans-serif;
-  padding: 20px;
   letter-spacing: 2px; /* Increase letter spacing */
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .subheader {
   text-align: center; /* Horizontal center alignment */
   font-family: 'Bungee', sans-serif;
-  text-decoration: underline;
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
-  margin-top: 20px;
   justify-content: center; /* Center text along x-axis */
+  align-items: center; /* Center text along y-axis */
+  padding: 30px;
+  border-radius: 50px; /* Rounded edges */
+  background-color: white;
+  color: #E56399;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .subheader-small {
@@ -30,39 +35,47 @@
   display: flex;
   flex-direction: column;
   color: white;
-  padding: 10px;
   font-size: 12pt;
 }
 
 /* Grid Styling */
 
 .container.text-center {
-  text-align: left;
+  text-align: center;
   display: flex;
   flex-wrap: wrap; /* Allow items to wrap to the next line */
   justify-content: center; /* Center items horizontally */
   align-items: flex-start; /* Align items to the top */
+  width: 100%; /* Adjust width */
 }
   
 .row {
   display: flex;
+  flex-wrap: wrap;
   font-family: 'Bungee Hairline', sans-serif;
   padding: 0px;
-  margin-right: 10px;
-  margin: 0px;
+  margin: 10px;
 }
 
 .section-box {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   width: 100%; /* Set the width to 100% */
-  padding: 5px;
+  font-family: 'Bungee Hairline', sans-serif;
 }
 
 .col {
   font-family: 'Bungee Hairline', sans-serif;
+}
+
+/* Divider Container */
+.divider-container {
+  width: 100vw; /* Full width of the viewport */
+  padding: 20px 0; /* Add padding to create space around the white divider */
+  text-align: center;
+  margin-top: 15px;
 }
 
 /* Divider Styling */
@@ -70,16 +83,8 @@
   border: none;
   height: 2px; /* Adjust thickness */
   background-color: white; /* Keep the divider white */
-  width: 100%; /* Adjust width */
-  margin: 5px 0; /* Add consistent vertical spacing */
-}
-
-/* Divider Container */
-.divider-container {
-  width: 50vw; /* Half width of the viewport */
-  background-color: #E56399;
-  padding: 30px 0; /* Add padding to create space around the white divider */
-  text-align: center;
+  width: 70%; /* Adjust width */
+  margin: 0 auto; /* Center horizontally */
 }
 
 /* Paragraph Styling */
@@ -93,24 +98,19 @@
   justify-content: space-between; /* Ensures text is spaced evenly when flexed */
   margin-top: 15px;
   margin-bottom: 15px;
+  width: 70%;
 }
 
 /* Skills Styling */
 
 .skill {
+  display: flex;
   margin-top: 20px;
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.section-box-skill {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%; /* Set the width to 100% */
+  justify-content: space-between;
 }
 
 .circle-label {
@@ -122,7 +122,7 @@
   font-weight: 600;
   max-width: 800px; /* Limits the width for better layout control */
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .circle-container {
@@ -152,7 +152,7 @@
   font-size: 12pt;
   margin-top: 15px;
   margin-bottom: 15px;
-  max-width: 600px;
+  width: 100%;
   font-weight: 600;
   font-family: 'Bungee Hairline', sans-serif;
 }

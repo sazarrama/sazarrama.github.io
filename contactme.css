@@ -52,9 +52,9 @@
 /* Divider Container */
 .divider-container {
   width: 100vw; /* Full width of the viewport */
-  background-color: #E56399;
-  padding: 10px 0; /* Add padding to create space around the white divider */
+  padding: 20px 0; /* Add padding to create space around the white divider */
   text-align: center;
+  margin-top: 15px;
 }
 
 /* Divider Styling */

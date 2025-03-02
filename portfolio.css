@@ -8,8 +8,9 @@
   align-items: center; /* Center vertically in flex container */
   height: vh25; /* Full viewport height */
   font-family: 'Bungee Shade', sans-serif;
-  padding: 20px;
   letter-spacing: 2px; /* Increase letter spacing */
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .subheader-small {
@@ -18,8 +19,6 @@
   display: flex;
   flex-direction: column;
   color: white; /* Ensure text color is white */
-  background-color: #E56399;
-  padding: 10px;
   font-size: 12pt;
 }
 
@@ -34,9 +33,9 @@
 /* Divider Container */
 .divider-container {
   width: 100vw; /* Full width of the viewport */
-  background-color: #E56399;
-  padding: 10px 0; /* Add padding to create space around the white divider */
+  padding: 20px 0; /* Add padding to create space around the white divider */
   text-align: center;
+  margin-top: 15px;
 }
 
 /* Divider Styling */
@@ -44,7 +43,7 @@
   border: none;
   height: 2px; /* Adjust thickness */
   background-color: white; /* Keep the divider white */
-  width: 80%; /* Adjust width */
+  width: 70%; /* Adjust width */
   margin: 0 auto; /* Center horizontally */
 }
 
@@ -63,34 +62,64 @@
   font-family: 'Bungee Hairline', sans-serif;
 }
 
+/* Grid container */
 .grid-container {
   text-align: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   background-color: #E56399;
   padding: 30px;
+  gap: 10px; /* Adds spacing between images */
 }
 
+/* Thumbnail container */
 .thumbnail {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  overflow: hidden;
-  cursor: pointer;
-  margin: 10px;
-  transition: transform 0.3s ease-in-out;
+  flex: 1 1 calc(100% / 5 - 10px); /* Ensures max 5 per row */
+  max-width: calc(100% / 5 - 10px); /* Prevents overflow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.thumbnail.active {
-  border-color: #007bff;
-}
-
+/* Circular Thumbnail Images */
 .thumbnail img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  aspect-ratio: 1 / 1; /* Keeps the images perfectly square */
+  border-radius: 50%; /* Makes them circular */
+  object-fit: cover; /* Ensures no stretching */
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Hover effect */
+.thumbnail img:hover {
+  transform: scale(1.05);
+}
+
+/* Tablet view: 4 per row */
+@media (max-width: 1024px) {
+  .thumbnail {
+    flex: 1 1 calc(100% / 4 - 10px);
+    max-width: calc(100% / 4 - 10px);
+  }
+}
+
+/* Mobile view: 3 per row */
+@media (max-width: 768px) {
+  .thumbnail {
+    flex: 1 1 calc(100% / 3 - 10px);
+    max-width: calc(100% / 3 - 10px);
+  }
+}
+
+/* Small mobile view: 2 per row */
+@media (max-width: 480px) {
+  .thumbnail {
+    flex: 1 1 calc(100% / 2 - 10px);
+    max-width: calc(100% / 2 - 10px);
+  }
 }
 
 /* Carousel Styling */
@@ -116,67 +145,87 @@
   margin: auto;
 }
 
-/* Modal Styling */
-
-/* Center the modal vertically */
+/* Modal Styling - Transparent Background */
 .modal {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1050; /* Ensure the modal is on top of other content */
-  background-color: rgba(0, 0, 0, 0.8); /* Optional, to dim the background */
-  position: relative; /* Ensure positioning context for the controls */
+  z-index: 1050; /* Ensure it stays on top */
+  background-color: transparent !important;
 }
 
-/* Optional: Add overlay to make the modal stand out */
+/* Make Modal Backdrop Dark but Transparent */
 .modal-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: transparent; /* Adjust the transparency as needed */
-  z-index: 1040; /* Ensure the backdrop is behind the modal */
+  background-color: rgba(0, 0, 0, 0.8) !important; /* Soft dark backdrop */
 }
 
-.modal-dialog{
-  align-items: center;
-  justify-content: center;
+/* Remove Borders, Shadows, and Background */
+.modal-content {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
+/* Remove Any Padding, Borders, and Background from Modal Body */
 .modal-body {
-  background-color: white; /* Adjusted transparency */
+  background-color: transparent !important;
+  padding: 0 !important;
+  border: none !important;
 }
 
+/* Remove Modal Header Background and White Line */
 .modal-header {
-  background-color: white; /* Adjusted transparency */
-  padding: 20px;
-}
-
-.modalLabel {
-  background-color: rgba(0, 0, 0, 0.8);
-  color: transparent;
+  display: none; /* Hides the header completely */
+  border: none !important;
+  background: transparent !important;
+  padding: 30px !important;
+  margin: 0 !important;
 }
 
 .modal-title {
-  color: transparent;
+  display: none !important;
 }
 
-/* Close button styling */
+/* Remove Modal Footer if Present */
+.modal-footer {
+  display: none !important;
+}
+
+/* White Close Button */
 .btn-close {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 0.5rem; /* Make the button smaller */
-  background-color: transparent;
-  color: white; /* Set the button text (x) to white */
-  border: none;
-  outline: none;
-  cursor: pointer;
-  z-index: 1052; /* Ensure the close button is above other content */
+  top: 15px;
+  right: 15px;
+  width: 35px;
+  height: 35px;
+  background: white;
+  border-radius: 50%;
+  opacity: 1; /* Ensure full visibility */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1052;
+  transition: transform 0.2s ease-in-out;
+  border: none !important; /* Remove any unwanted borders */
 }
 
-/* Carousel control buttons */
+/* Custom 'X' Symbol for Close Button */
+.btn-close::before {
+  content: "✕"; /* Unicode 'X' character */
+  font-size: 18px;
+  color: white; /* Make the 'X' visible */
+  font-weight: bold;
+  line-height: 1;
+}
+
+/* Hide close button in mobile view */
+@media (max-width: 768px) {
+  .btn-close {
+    display: none;
+  }
+}
+
+/* Carousel Controls - Original Color Icons */
 .carousel-control-prev, .carousel-control-next {
   position: absolute;
   top: 50%;
@@ -187,13 +236,29 @@
   border: none;
   outline: none;
   cursor: pointer;
-  color: white; /* Ensure the controls are visible */
   z-index: 1051; /* Ensure the controls are above the carousel content */
 }
 
-#imageModal .modal-header {
-  border: none;
-  color: white; /* Ensure header text is white */
-  padding: 0;
-  margin: 0;
+/* Adjust carousel control icons to be more visible */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1); /* Makes Bootstrap's default icons white */
+  width: 2rem;
+  height: 2rem;
+}
+
+/* Smaller icons in mobile view */
+@media (max-width: 768px) {
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+}
+
+/* Ensure images in modal display correctly */
+.modal-body img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
 }
