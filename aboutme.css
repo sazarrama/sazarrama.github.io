@@ -55,7 +55,7 @@
   font-size: 12pt; /* Slightly larger font size for better readability */
   font-family: 'Bungee Hairline', sans-serif;
   font-weight: 600;
-  max-width: 800px; /* Limits the width for better layout control */
+  max-width: 600px; /* Limits the width for better layout control */
   padding: 20px;
   justify-content: space-between; /* Ensures text is spaced evenly when flexed */
 }

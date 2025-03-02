@@ -19,6 +19,9 @@
   text-decoration: underline;
   display: flex;
   flex-direction: column;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  justify-content: center; /* Center text along x-axis */
 }
 
 .subheader-small {
@@ -54,39 +57,42 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 25px;
   width: 100%; /* Set the width to 100% */
+  padding: 5px;
 }
 
 .col {
   font-family: 'Bungee Hairline', sans-serif;
 }
 
-.ul {
-  display: flex;
-  list-style: none;
-  padding-bottom: 10px;
-  justify-content: center;
-  text-align: center;
-}
-
-li {
-  display: flex; /* Each list item on a new line */
-  margin-bottom: 10px; /* Adjust the margin between items as needed */
-  text-align: center;
-  font-size: larger;
-  font-weight: 600;
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
-  font-family: 'Bungee Hairline', sans-serif;
-}
-
 /* Divider Styling */
 .divider {
-  border: none; 
-  height: 1px; /* Adjust thickness */
-  background-color: #ccc; /* Line color */
+  border: none;
+  height: 2px; /* Adjust thickness */
+  background-color: white; /* Keep the divider white */
   width: 100%; /* Adjust width */
-  margin: 20px auto; /* Center horizontally */
+  margin: 5px 0; /* Add consistent vertical spacing */
+}
+
+/* Divider Container */
+.divider-container {
+  width: 50vw; /* Half width of the viewport */
+  background-color: #E56399;
+  padding: 30px 0; /* Add padding to create space around the white divider */
+  text-align: center;
+}
+
+/* Paragraph Styling */
+
+.styled-paragraph {
+  display: flex;
+  font-size: 12pt; /* Slightly larger font size for better readability */
+  font-family: 'Bungee Hairline', sans-serif;
+  font-weight: 600;
+  max-width: 600px; /* Limits the width for better layout control */
+  justify-content: space-between; /* Ensures text is spaced evenly when flexed */
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 /* Skills Styling */
@@ -110,13 +116,13 @@ li {
 .circle-label {
   display: flex;
   justify-content: space-between; /* Justifies the text for better readability */
-  padding: 20px; /* Adds padding around the text */
   font-size: 1.1rem; /* Slightly larger font size for better readability */
   font-family: 'Bungee Hairline', sans-serif;
   font-size: medium;
   font-weight: 600;
   max-width: 800px; /* Limits the width for better layout control */
-  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .circle-container {
@@ -141,12 +147,16 @@ li {
 /* Certifications Styling */
 .certification-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  margin-top: 5px;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 12pt;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  max-width: 600px;
   font-weight: 600;
+  font-family: 'Bungee Hairline', sans-serif;
 }
+
 
 
 

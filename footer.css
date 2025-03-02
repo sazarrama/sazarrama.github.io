@@ -4,6 +4,7 @@
 .footer {
   width: 100%; /* Full width but respects container size */
   box-sizing: border-box; /* Include padding in the width */
+  padding: 50px;
 }
 
 /* Make sure the nav links stack vertically on smaller screens */
