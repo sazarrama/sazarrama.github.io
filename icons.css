@@ -9,7 +9,7 @@
     height: 60px;
     background-color: transparent; /* White background for the circle */
     border-radius: 50%; /* Make the container circular */
-    margin-bottom: 20px; /* Add space between icon and label */
+    margin-bottom: 5px; /* Add space between icon and label */
   }
   
   /* Icon Styling */
@@ -31,12 +31,9 @@
   
   /* Additional Styling for Links (Icon Links) */
   .icon-link {
-    width: 160px; /* Set a fixed width for icon link containers */
-    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 30px;
   }
   
   /* Icon Link Text Styling */
