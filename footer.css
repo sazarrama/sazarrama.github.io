@@ -4,6 +4,24 @@
 .footer {
   width: 100%; /* Full width but respects container size */
   box-sizing: border-box; /* Include padding in the width */
+  padding: 50px;
+}
+
+/* Divider Container */
+.divider-container {
+  width: 100vw; /* Full width of the viewport */
+  background-color: #E56399;
+  padding: 40px 0; /* Add padding to create space around the white divider */
+  text-align: center;
+}
+
+/* Divider Styling */
+.divider {
+  border: none;
+  height: 2px; /* Adjust thickness */
+  background-color: white; /* Keep the divider white */
+  width: 80%; /* Adjust width */
+  margin: 0 auto; /* Center horizontally */
 }
 
 
