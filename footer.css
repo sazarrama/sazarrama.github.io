@@ -28,6 +28,12 @@
   .footer .nav-item {
     width: 100%; /* Makes each item take full width */
   }
+
+  .footer .nav-link.active {
+    padding: 10px; /* Add padding to each link */
+    width: 80%;
+    margin: 0 auto; /* Center the element */
+  }
 }
 
 /* Text Styling */
