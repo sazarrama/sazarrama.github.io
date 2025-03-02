@@ -51,7 +51,6 @@
 
 .styled-paragraph {
   display: flex;
-  padding: 20px; /* Adds padding around the text */
   font-size: 12pt; /* Slightly larger font size for better readability */
   font-family: 'Bungee Hairline', sans-serif;
   font-weight: 600;
@@ -85,7 +84,7 @@
 .divider-container {
   width: 100vw; /* Full width of the viewport */
   background-color: #E56399;
-  padding: 10px 0; /* Add padding to create space around the white divider */
+  padding: 30px 0; /* Add padding to create space around the white divider */
   text-align: center;
 }
 
